@@ -18,8 +18,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">bsc</a>
         </li>
-      </ul>
-     
+      </ul>     
     </div>
   </div>
 </nav>
