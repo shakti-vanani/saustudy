@@ -1,10 +1,10 @@
 #############
 |_________________________________________________________________________
-|
-|           Database Create Information
-| 
-| Database Location: [localhost/saustudy/admin/database]
-|
+|                                                                         |
+|           Database Create Information                                   |
+|                                                                         |
+| Database Location: [localhost/saustudy/admin/database]                  |
+|                                                                         |
 | Database Name : Saustudy
 | Table Name    : [1]Users,[2]Courses,[3]Semesters,[4]category,[5]post
 |
