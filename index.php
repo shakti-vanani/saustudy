@@ -8,8 +8,7 @@
     <?php include 'css.php'; ?>
 </head>
 <body>
-<h1 class="btn btn-primary">saustudy</h1> 
- demo test dem
+<?php include 'menu.php'; ?>
 <?php include 'js.php'; ?>
 </body>
 </html>
