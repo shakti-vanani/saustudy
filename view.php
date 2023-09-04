@@ -60,7 +60,7 @@ $obj1=new user();
 					<a href="/saustudy/update.php?id=<?php echo $row["id"]; ?>"><span class="btn btn-primary">EDIT</span></a>
 		 </td>
 		 <td>		
-					<a href="/saustudy/delete.php?id=<?php echo $row["id"]; ?>" onclick="return confirm('are you sure to delete')" ><span class="btn btn-danger">DELETE</span></a>
+					<a href="/saustudy/delete.php?id=<?php echo $row["id"]; ?>" ><span class="btn btn-danger">DELETE</span></a>
                 </td>
 		</tr>
 		<?php	}		
