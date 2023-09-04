@@ -10,10 +10,16 @@
 </head>
 
 <body>
-    <form method="POST" action="main.php">
-        <h1>update info</h1>
-        <div class="container-fluid">
-		<div class="mb-3">
+    <?php include 'menu.php'; ?>
+    <div class="container-fluid">
+        <form method="GET" class="form border border-primary m-3 p-2 rounded" action="main.php">
+            <?php
+                 $id=$_GET['id'];
+                //$id=$_POST['id'];
+            ?>
+            <input type="number" value="<?php echo $id ?>" name="id">
+            <div class="mb-3">
+
                 <label for="fname" class="form-label">fname</label>
                 <input type="text" class="form-control" name="fname" required>
             </div>
@@ -21,23 +27,21 @@
                 <label for="lname" class="form-label">lname</label>
                 <input type="text" class="form-control" name="lname" required>
             </div>
-			<div class="mb-3">
+            <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>  
+                <input type="email" class="form-control" name="email" required>
+            </div>
             <div class="mb-3">
                 <label for="username" class="form-label">username</label>
                 <input type="text" class="form-control" name="username" required>
             </div>
-			<div class="mb-3">
+            <div class="mb-3">
                 <label for="password" class="form-label">password</label>
                 <input type="password" class="form-control" name="password" required>
-            </div>  
-
-        </div>
-        <button type="submit" name="update">update</button>
-    </form>
-
+            </div>
+            <button class="btn btn-primary" type="submit" name="update">update</button>
+        </form>
+    </div>
     <?php include 'js.php'; ?>
 </body>
 

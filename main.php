@@ -16,7 +16,7 @@ class user
         $res=mysqli_query($this->db,$sql);
         return $res;
     }
-    function edit($fname,$lname,$email,$username,$password)
+    function edit($id,$fname,$lname,$email,$username,$password)
     {  
         $sql="UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`username`='$username',`pass`='$password' WHERE `id`='$id'";
         $res=mysqli_query($this->db,$sql);
@@ -64,16 +64,36 @@ elseif(isset($_GET['update']))
         $res=$obj->edit($id,$fname,$lname,$email,$username,$password);
         if($res)
         {
-           header("location:view.php");
+           header("location: view.php");
         }
         else{
             echo"data not updated successfully";
         }
     
-} /*  
-elseif(isset($_GET['delete']))
+} /*
+elseif(isset($_POST['update']))
+{    
+
+        $id=$_POST['id'];
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        $res=$obj->edit($id,$fname,$lname,$email,$username,$password);
+        if($res)
+        {
+           header("location: view.php");
+        }
+        else{
+            echo"data not updated successfully";
+        }
+    
+} 
+ /* 
+elseif(isset($_POST['delete']))
 {
-         $id=$_GET['id'];
+         $id=$_POST['id'];
         $res=$obj->delete($id);
         if($res)
         {
