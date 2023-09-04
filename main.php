@@ -89,8 +89,7 @@ elseif(isset($_POST['update']))
             echo"data not updated successfully";
         }
     
-} 
- /* 
+} /*
 elseif(isset($_POST['delete']))
 {
          $id=$_POST['id'];
