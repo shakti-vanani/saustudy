@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form method="GET" action="main.php">
+    <form method="POST" action="main.php">
         <div class="container-fluid">
 		<div class="mb-3">
                 <label for="fname" class="form-label">fname</label>

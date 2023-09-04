@@ -1,21 +1,19 @@
 <?php
-class test
+include 'admin/error.php'; 
+class user
 {
     private $conn='';
     function __construct()
     {
-                $conn= new mysqli('localhost','root','','saustudy');
-                $this->db=$conn;
-                if($this->db)
-                {echo "connected";
-                }
-                else
-                { echo" not connected";
-                }
+                include 'admin/database/db.php';
+                //$conn= new mysqli('localhost','root','','saustudy');
+                $this->$db=$conn;
+               
     }
     function insert($fname,$lname,$email,$username,$password)
-    {
-        $res=mysqli_query($this->db,"INSERT INTO `users`(`fname`, `lname`, `email`, `username`, `pass`) VALUES ('$fname','$lname','$email','$username','$password')");
+    {   
+        $sql="INSERT INTO `users`(`fname`, `lname`, `email`, `username`, `pass`) VALUES ('$fname','$lname','$email','$username','$password')";
+        $res=mysqli_query($this->$db,$sql);
         return $res;
     }
     function edit($fname,$lname,$email,$username,$password)
@@ -30,19 +28,20 @@ class test
     }
     */
     function view()
-    {
-            $res=mysqli_query($this->db,"SELECT * FROM `users`");
+    {       
+            $sql="SELECT * FROM `users`";
+            $res=mysqli_query($this->db,$sql);
             return $res;
     }
 }
-$obj=new test();
-if(isset($_GET['submit']))
+$obj=new user();
+if(isset($_POST['submit']))
 {    
-        $fname=$_GET['fname'];
-        $lname=$_GET['lname'];
-        $email=$_GET['email'];
-        $username=$_GET['username'];
-        $username=$_GET['password'];
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
         $res=$obj->insert($fname,$lname,$email,$username,$password);
         if($res)
         {

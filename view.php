@@ -1,6 +1,6 @@
 <?php
 include 'main.php';
-$obj1=new test();
+$obj1=new user();
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@ $obj1=new test();
 				<?php  echo $row["email"];  ?>
 			</td>
 			<td>
-				<?php  echo $row["password"];  ?>
+				<?php  echo $row["username"];  ?>
 			</td>
 			<td>
 					<a href="/saustudy/update.php?id=<?php echo $row["id"]; ?>"><span class="button">EDIT</span></a>
