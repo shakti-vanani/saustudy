@@ -12,7 +12,7 @@
 <body>
     <?php include 'menu.php'; ?>
     <div class="container-fluid">
-        <form method="GET" class="form border border-primary m-3 p-2 rounded" action="main.php">
+        <form method="POST" class="form border border-primary m-3 p-2 rounded" action="main.php">
             <?php
                  $id=$_GET['id'];
                 //$id=$_POST['id'];

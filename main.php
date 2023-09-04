@@ -52,15 +52,15 @@ if(isset($_POST['submit']))
             echo"alert('data not inserted successfully')";
         }
 } 
-elseif(isset($_GET['update']))
+elseif(isset($_POST['update']))
 {    
 
-        $id=$_GET['id'];
-        $fname=$_GET['fname'];
-        $lname=$_GET['lname'];
-        $email=$_GET['email'];
-        $username=$_GET['username'];
-        $password=$_GET['password'];
+        $id=$_POST['id'];
+        $fname=$_POST['fname'];
+        $lname=$_POST['lname'];
+        $email=$_POST['email'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
         $res=$obj->edit($id,$fname,$lname,$email,$username,$password);
         if($res)
         {
