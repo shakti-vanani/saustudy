@@ -6,9 +6,10 @@ $obj1=new user();
 <html>
 <head>
     <title>view data</title>
+	<?php include 'css.php'; ?>
 </head>
 <body>	
-
+<?php include 'menu.php'; ?>
 	<table class="table">
 		<tr class="title">
 			<td>id</td>
@@ -50,5 +51,6 @@ $obj1=new user();
 		<?php	}		
 		echo "</table>";
 		?>
+		<?php include 'js.php'; ?>
 </body>
 </html>
