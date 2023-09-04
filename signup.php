@@ -34,7 +34,7 @@
                 <label for="password" class="form-label">password</label>
                 <input type="password" class="form-control" name="password" required>
             </div>  
-            <button class="btn btn-primary type="submit" name="submit">submit</button>
+            <button class="btn btn-primary" type="submit" name="submit">submit</button>
     </form>
     </div>
     <?php include 'js.php'; ?>
