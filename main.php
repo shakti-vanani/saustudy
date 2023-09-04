@@ -7,19 +7,20 @@ class user
     {
                 include 'admin/database/db.php';
                 //$conn= new mysqli('localhost','root','','saustudy');
-                $this->$db=$conn;
+                $this->db=$conn;
                
     }
     function insert($fname,$lname,$email,$username,$password)
     {   
         $sql="INSERT INTO `users`(`fname`, `lname`, `email`, `username`, `pass`) VALUES ('$fname','$lname','$email','$username','$password')";
-        $res=mysqli_query($this->$db,$sql);
+        $res=mysqli_query($this->db,$sql);
         return $res;
     }
     function edit($fname,$lname,$email,$username,$password)
     {  
-        $sql=mysqli_query($this->db,"UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`username`='$username',`pass`='$password' WHERE `id`='$id'");
-        return $sql;
+        $sql="UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`username`='$username',`pass`='$password' WHERE `id`='$id'";
+        $res=mysqli_query($this->db,$sql);
+        return $res;
     }/*
     function delete($id)
     {
