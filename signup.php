@@ -10,8 +10,10 @@
 </head>
 
 <body>
-    <form method="POST" action="main.php">
-        <div class="container-fluid">
+    <?php include 'menu.php'; ?>
+<div class="container-fluid">
+    <form method="POST" class="form border border-primary m-3 p-2 rounded" action="main.php">
+        
 		<div class="mb-3">
                 <label for="fname" class="form-label">fname</label>
                 <input type="text" class="form-control" name="fname" required>
@@ -32,11 +34,9 @@
                 <label for="password" class="form-label">password</label>
                 <input type="password" class="form-control" name="password" required>
             </div>  
-            <button class="bg bg-primary" type="submit" name="submit">submit</button>
-        </div>
-       
+            <button class="btn btn-primary type="submit" name="submit">submit</button>
     </form>
-
+    </div>
     <?php include 'js.php'; ?>
 </body>
 
