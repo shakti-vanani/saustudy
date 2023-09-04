@@ -51,7 +51,7 @@ if(isset($_POST['submit']))
         else{
             echo"alert('data not inserted successfully')";
         }
-}
+} 
 elseif(isset($_GET['update']))
 {    
 
