@@ -23,9 +23,9 @@ class user
         return $res;
     }
     function delete($id)
-    {
-        $sql=mysqli_query($this->db,"DELETE FROM `users` WHERE `id`='$id'");
-        return $sql;
+    {   $sql="DELETE FROM `users` WHERE `id`='$id'";
+        $res=mysqli_query($this->db,$sql);
+        return $res;
     }
     function view()
     {       
