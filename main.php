@@ -21,13 +21,12 @@ class user
         $sql="UPDATE `users` SET `fname`='$fname',`lname`='$lname',`email`='$email',`username`='$username',`pass`='$password' WHERE `id`='$id'";
         $res=mysqli_query($this->db,$sql);
         return $res;
-    }/*
+    }
     function delete($id)
     {
         $sql=mysqli_query($this->db,"DELETE FROM `users` WHERE `id`='$id'");
         return $sql;
     }
-    */
     function view()
     {       
             $sql="SELECT * FROM `users`";
@@ -71,7 +70,6 @@ elseif(isset($_POST['update']))
         }
     
 } 
-/*
 elseif(isset($_POST['delete']))
 {
          $id=$_POST['id'];
@@ -83,5 +81,5 @@ elseif(isset($_POST['delete']))
         else{
             echo"not deleted";
         }
-   }  */    
+   }    
 ?>
