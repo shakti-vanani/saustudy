@@ -70,26 +70,8 @@ elseif(isset($_POST['update']))
             echo"data not updated successfully";
         }
     
-} /*
-elseif(isset($_POST['update']))
-{    
-
-        $id=$_POST['id'];
-        $fname=$_POST['fname'];
-        $lname=$_POST['lname'];
-        $email=$_POST['email'];
-        $username=$_POST['username'];
-        $password=$_POST['password'];
-        $res=$obj->edit($id,$fname,$lname,$email,$username,$password);
-        if($res)
-        {
-           header("location: view.php");
-        }
-        else{
-            echo"data not updated successfully";
-        }
-    
-} /*
+} 
+/*
 elseif(isset($_POST['delete']))
 {
          $id=$_POST['id'];
