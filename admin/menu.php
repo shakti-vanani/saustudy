@@ -330,7 +330,7 @@
 					<ul id="accordion-menu">
 						
 						<li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
+							<a href="courses.php" class="dropdown-toggle no-arrow">
 							
 							<span class="micon fa fa-book"></span
 								><span class="mtext">Course</span>
@@ -338,9 +338,9 @@
 							</a>
 						</li>						
 						<li>
-							<a href="sitemap.html" class="dropdown-toggle no-arrow">
+							<a href="semesters.php" class="dropdown-toggle no-arrow">
 							<span class="micon  dw dw-book1"></span>	
-							<span class="mtext">Course</span>
+							<span class="mtext">semesters</span>
 								
 							</a>
 						</li>	
