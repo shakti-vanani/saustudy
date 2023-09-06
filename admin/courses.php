@@ -17,15 +17,16 @@ class courses
         return $res;
     }
     function delete($id)
-    {   $sql="DELETE FROM `courses` WHERE `id`='$id'";
-        $res=mysqli_query($this->db,$sql);
+    {
+        $sql = "DELETE FROM `courses` WHERE `course_id`='$id'";
+        $res = mysqli_query($this->db, $sql);
         return $res;
     }
     function view()
-    {       
-            $sql="SELECT * FROM `courses`";
-            $res=mysqli_query($this->db,$sql);
-            return $res;
+    {
+        $sql = "SELECT * FROM `courses`";
+        $res = mysqli_query($this->db, $sql);
+        return $res;
     }
 }
 $obj = new courses();
@@ -38,20 +39,16 @@ if (isset($_POST['submit'])) {
     } else {
         echo "alert('data not inserted successfully')";
     }
+} elseif (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    // $id=$_POST['course_id'];
+    $res = $obj->delete($id);
+    if ($res) {
+        header("location:courses.php");
+    } else {
+        echo "not deleted";
+    }
 }
-elseif(isset($_POST['delete']))
-{
-        $id=$_GET['id'];
-        // $id=$_POST['course_id'];
-        $res=$obj->delete($id);
-        if($res)
-        {
-            header("location:courses.php");
-        }
-        else{
-            echo"not deleted";
-        }
-   }
 
 //$obj1=new courses();
 ?>
@@ -117,25 +114,33 @@ elseif(isset($_POST['delete']))
                             </tr>
                         </thead>
                         <tbody>
-                        <?php 
-		$data=$obj->view();
-		 while($row = mysqli_fetch_assoc($data)) {
-		?>
-		<tr>	
-			<td>
-				<?php  echo $row["course_id"];  ?>
-			</td>
-			<td>
-				<?php  echo $row["course"];  ?>
-			</td>
-            <td>
-               
-					<a href="courses.php?id=<?php echo $row["course_id"]; ?>" ><span class="btn btn-primary">EDIT</span></a>
-		 </td>
-		 <td>		
-					<a href="courses.php?id=<?php echo $row["course_id"]; ?>"  name="delete" type="submit"><span class="btn btn-danger">DELETE</span></a>
-                </td>
-         </tr> <?php } ?>
+                            <?php
+                            $data = $obj->view();
+                            while ($row = mysqli_fetch_assoc($data)) {
+                                ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $row["course_id"]; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $row["course"]; ?>
+                                    </td>
+                                    <td>
+                                        <form action="courses.php" method="POST">
+                                            <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
+                                            <button class="btn btn-primary m-3" type="submit" name="update"
+                                                onclick="return confirm('are you sure to Update')">update</button>
+                                        </form>
+                            </td>
+                            <td>
+                                        <form action="courses.php" method="POST">
+                                            <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
+                                            <button class="btn btn-danger m-3" type="submit" name="delete"
+                                                onclick="return confirm('are you sure to delete')">delete</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
