@@ -16,9 +16,9 @@ class courses
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function edit($id,$course)
+    function update($id, $course)
     {
-        $sql="UPDATE `courses` SET `course`='$course' WHERE `course_id`='$id'";
+        $sql = "UPDATE `courses` SET `course`='$course' WHERE `course_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -46,17 +46,17 @@ if (isset($_POST['submit'])) {
         echo "alert('data not inserted successfully')";
     }
 }
-if (isset($_POST['edit'])) {
-    $id=$_POST['id'];
+if (isset($_POST['update'])) {
+    $id = $_POST['course_id'];
     $course = $_POST['course'];
 
-    $res = $obj->edit($id,$course);
+    $res = $obj->update($id, $course);
     if ($res) {
         header("location:courses.php");
     } else {
         echo "alert('data not updated successfully')";
     }
- } elseif (isset($_POST['delete'])) {
+} elseif (isset($_POST['delete'])) {
     $id = $_POST['id'];
     // $id=$_POST['course_id'];
     $res = $obj->delete($id);
@@ -119,26 +119,8 @@ if (isset($_POST['edit'])) {
                         </div>
                     </form>
                 </div>
-            </div> 
-            <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
-                <div class="col-md-12 col-sm-12 card-box">
-                    <form method="POST" action="courses.php">
-                        <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Course Name</h4>
-                                </div>
-                            </label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="course" placeholder="update course">
-                            </div>
-                            <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="edit" class="btn btn-success">update</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>                     
+            </div>
+
             <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
                 <div class="col-md-12 col-sm-12   card-box">
                     <table class="table table-striped">
@@ -162,14 +144,54 @@ if (isset($_POST['edit'])) {
                                         <?php echo $row["course"]; ?>
                                     </td>
                                     <td>
-                                        <form action="courses.php" method="POST">
-                                            <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
-                                            <button class="btn btn-primary m-3" type="submit" name="update"
-                                                onclick="return confirm('are you sure to Update')">update</button>
-                                        </form>
-                            </td>
-                            <td>
-                                        <form action="courses.php" method="POST">
+
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal"
+                                            type="button">
+                                            Update
+                                        </a>
+                                        <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
+                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content">
+                                                    <form action="" method="POST">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="myLargeModalLabel">
+                                                                Update Courses
+                                                            </h4>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-hidden="true">
+                                                                ×
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+                                                            <input type="number" value="<?php echo $row["course_id"]; ?>"
+                                                                name="course_id" hidden>
+                                                            <div class="title">
+                                                                <h4>Course Name</h4>
+                                                            </div>
+                                                            <input class="form-control p-2" type="text" value="<?php echo $row["course"]; ?>"
+                                                                name="course">
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">
+                                                                Close
+                                                            </button>
+                                                            <button class="btn btn-primary m-3" type="submit" name="update">
+                                                                Update </button>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <form action="" method="POST">
                                             <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
                                             <button class="btn btn-danger m-3" type="submit" name="delete"
                                                 onclick="return confirm('are you sure to delete')">delete</button>
