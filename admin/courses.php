@@ -145,11 +145,11 @@ if (isset($_POST['update'])) {
                                     </td>
                                     <td>
 
-                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Medium-modal"
+                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#course-update"
                                             type="button">
                                             Update
                                         </a>
-                                        <div class="modal fade" id="Medium-modal" tabindex="-1" role="dialog"
+                                        <div class="modal fade" id="course-update" tabindex="-1" role="dialog"
                                             aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
