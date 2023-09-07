@@ -332,6 +332,13 @@
 							<span class="mtext">semesters</span>
 								
 							</a>
+						</li>
+						<li>
+							<a href="category.php" class="dropdown-toggle no-arrow">
+							<span class="micon  dw dw-book1"></span>	
+							<span class="mtext">Category</span>
+								
+							</a>
 						</li>	
 						<li>
 							<div class="dropdown-divider"></div>
