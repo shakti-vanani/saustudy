@@ -16,6 +16,12 @@ class courses
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
+    function edit($id,$course)
+    {
+        $sql="UPDATE `courses` SET `course`='$course' WHERE `course_id`='$id'";
+        $res = mysqli_query($this->db, $sql);
+        return $res;
+    }
     function delete($id)
     {
         $sql = "DELETE FROM `courses` WHERE `course_id`='$id'";
@@ -39,7 +45,18 @@ if (isset($_POST['submit'])) {
     } else {
         echo "alert('data not inserted successfully')";
     }
-} elseif (isset($_POST['delete'])) {
+}
+if (isset($_POST['edit'])) {
+    $id=$_POST['id'];
+    $course = $_POST['course'];
+
+    $res = $obj->edit($id,$course);
+    if ($res) {
+        header("location:courses.php");
+    } else {
+        echo "alert('data not updated successfully')";
+    }
+ } elseif (isset($_POST['delete'])) {
     $id = $_POST['id'];
     // $id=$_POST['course_id'];
     $res = $obj->delete($id);
@@ -102,7 +119,26 @@ if (isset($_POST['submit'])) {
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> 
+            <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
+                <div class="col-md-12 col-sm-12 card-box">
+                    <form method="POST" action="courses.php">
+                        <div class="form-group row pd-10">
+                            <label class="col-sm-12 col-md-2 col-form-label">
+                                <div class="title">
+                                    <h4>Course Name</h4>
+                                </div>
+                            </label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" name="course" placeholder="update course">
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <button type="submit" name="edit" class="btn btn-success">update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>                     
             <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
                 <div class="col-md-12 col-sm-12   card-box">
                     <table class="table table-striped">
