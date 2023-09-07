@@ -164,16 +164,21 @@ if (isset($_POST['update'])) {
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
+                                                            <div class="form-group row">
+                                                                <input type="number"
+                                                                    value="<?php echo $row["course_id"]; ?>"
+                                                                    name="course_id" hidden>
+                                                                <div class="col-sm-12 col-md-4">
+                                                                    <div class="title">
+                                                                        <h4>Course Name</h4>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-12 col-md-8">
+                                                                    <input class="form-control p-2" type="text"
+                                                                        value="<?php echo $row["course"]; ?>" name="course">
+                                                                </div>
 
-                                                            <input type="number" value="<?php echo $row["course_id"]; ?>"
-                                                                name="course_id" hidden>
-                                                            <div class="title">
-                                                                <h4>Course Name</h4>
                                                             </div>
-                                                            <input class="form-control p-2" type="text" value="<?php echo $row["course"]; ?>"
-                                                                name="course">
-
-
 
                                                         </div>
                                                         <div class="modal-footer">
