@@ -44,14 +44,27 @@
 			</select>
 		</div>
 	</div>
+    <div class="form-group row pd-10">
+		<label class="col-sm-12 col-md-2 col-form-label"><div class="title">
+								<h4>Semester Select</h4>
+							</div></label></label>
+		<div class="col-sm-12 col-md-8">
+			<select class="custom-select col-12">
+				<option selected="">Choose...</option>
+				<option value="1">Semester 1</option>
+				<option value="2">Semester 2</option>
+				<option value="3">Semester 3</option>
+			</select>
+		</div>
+	</div>
                 <div class="form-group row pd-10">
                     
                 <label class="col-sm-12 col-md-2 col-form-label">
                     <div class="title">
-								<h4>Semester Name</h4>
+								<h4>Category Name</h4>
 							</div></label>
                 <div class="col-sm-12 col-md-8">
-                    <input class="form-control" type="text" placeholder="Add New Courses">
+                    <input class="form-control" type="text" placeholder="Add New Category">
                 </div>
                 <div class="col-sm-12 col-md-2">
                   <button type="submit" name="submit" class="btn btn-success">submit</button>
@@ -77,7 +90,7 @@
                         <th scope="row">1</th>
                         <td>BA</td>
                         <td>Semesters 1</td>
-                        <td>old Paper</td>
+                        <td>Book</td>
                         <td>
                             <a href="" class="text-primary">
                             <span class="micon fa fa-edit">   Edit</span>
@@ -88,6 +101,7 @@
                         <th scope="row">1</th>
                         <td>BA</td>
                         <td>Semesters 1</td>
+                        <td>Syllabus</td>
                         <td>
                             <a href="" class="text-primary">
                             <span class="micon fa fa-edit">   Edit</span>
