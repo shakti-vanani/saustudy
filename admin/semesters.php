@@ -10,15 +10,16 @@ class semester
         $this->db = $conn;
 
     }
-    function insert($courseid,$semester)
+    function insert($course_id,$semester)
     {
-        $sql = "INSERT INTO `semesters`(`course_id`, `semester`) VALUES ('$courseid','$semester')";
+        echo $course_id;
+        $sql = "INSERT INTO `semesters`(`course_id`, `semester`) VALUES ('$course_id','$semester')";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function edit($id,$courseid,$semester)
+    function edit($id,$course_id,$semester)
     {
-        $sql="UPDATE `semesters` SET `course_id`='$courseid',`semester`='$semester' WHERE `semester_id`='$id'";
+        $sql="UPDATE `semesters` SET `course_id`='$course_id',`semester`='$semester' WHERE `semester_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -43,9 +44,10 @@ class semester
 }
 $obj = new semester();
 if (isset($_POST['submit'])) {    
-    $courseid=$_POST['course_id'];
+    $course_id=$_POST['course_id'];
+    echo $course_id;
     $semester=$_POST['semester'];
-    $res = $obj->insert($courseid,$semester);
+    $res = $obj->insert($course_id,$semester);
     if ($res) {
         header("location:semesters.php");
     } else {
@@ -54,10 +56,10 @@ if (isset($_POST['submit'])) {
 }
 if (isset($_POST['update'])) {
     $id=$_POST['semester_id'];
-    $courseid=$_POST['course_id'];
+    $course_id=$_POST['course_id'];
     $semester = $_POST['semester'];
 
-    $res = $obj->edit($id,$courseid,$semester);
+    $res = $obj->edit($id,$course_id,$semester);
     if ($res) {
         header("location:semesters.php");
     } else {
@@ -121,13 +123,13 @@ if (isset($_POST['update'])) {
                                 <?php
                                     $data = $obj->courseview();                           
                                 ?>
-                                <select class="custom-select col-12" name="course">
-                                    <option selected="">choose..</option>
+                                <select class="custom-select col-12" name="course_id">
+                                    
                                     <?php
                                        while( $row = mysqli_fetch_assoc($data))
                                        {
                                         ?>
-                                    <option value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
+                                    <option name="course_id" value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
                                     <?php }?>
                                 </select>
 
