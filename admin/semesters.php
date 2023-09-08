@@ -113,7 +113,7 @@ if (isset($_POST['update'])) {
             </div>
             <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
                 <div class="col-md-12 col-sm-12 card-box">
-                    <form method="POST" action="demo.php">
+                    <form method="POST" action="">
                         <div class="form-group row pd-10">
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
