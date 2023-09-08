@@ -132,7 +132,7 @@ if (isset($_POST['update'])) {
                                        {
                                         ?>
                                     <option value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
-                                    <?php }?>
+                                    <?php } ?>
                                 </select>
 
                             </div>
