@@ -45,11 +45,12 @@ class semester
 $obj = new semester();
 if (isset($_POST['submit'])) {    
     $course_id=$_POST['course_id'];
-    echo $course_id;
+    //echo $course_id;
     $semester=$_POST['semester'];
     $res = $obj->insert($course_id,$semester);
     if ($res) {
-        header("location:semesters.php");
+        //$course_id
+       // header("location:semesters.php");
     } else {
         echo "alert('data not inserted successfully')";
     }
@@ -112,7 +113,7 @@ if (isset($_POST['update'])) {
             </div>
             <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
                 <div class="col-md-12 col-sm-12 card-box">
-                    <form method="POST" action="">
+                    <form method="POST" action="demo.php">
                         <div class="form-group row pd-10">
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
@@ -121,6 +122,7 @@ if (isset($_POST['update'])) {
                             </label></label>
                             <div class="col-sm-12 col-md-8">
                                 <?php
+
                                     $data = $obj->courseview();                           
                                 ?>
                                 <select class="custom-select col-12" name="course_id">
@@ -129,7 +131,7 @@ if (isset($_POST['update'])) {
                                        while( $row = mysqli_fetch_assoc($data))
                                        {
                                         ?>
-                                    <option name="course_id" value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
+                                    <option value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
                                     <?php }?>
                                 </select>
 
