@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
     $res = $obj->insert($course_id,$semester);
     if ($res) {
         //$course_id
-       // header("location:semesters.php");
+       header("location:semesters.php");
     } else {
         echo "alert('data not inserted successfully')";
     }
