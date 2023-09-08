@@ -131,7 +131,7 @@ if (isset($_POST['update'])) {
                                        while( $row = mysqli_fetch_assoc($data))
                                        {
                                         ?>
-                                    <option value="<?php $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
+                                    <option value="<?php echo $row['course_id']; ?>"><?php echo $row["course"]; ?></option>
                                     <?php } ?>
                                 </select>
 
@@ -148,7 +148,7 @@ if (isset($_POST['update'])) {
                                 <input class="form-control" type="text" placeholder="Add New semester" name="semester">
                             </div>
                             <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="submit" class="btn btn-success">submit</button>
+                                <button type="submit" name="submit" value="submit" class="btn btn-success">submit</button>
                             </div>
                         </div>
                     </form>
