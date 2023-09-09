@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1); 
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -25,12 +27,13 @@ if (mysqli_query($conn, $sql)) {
 }
 // sql to create Semester table
 $sql = "CREATE TABLE semesters 
-(
+(    
     semester_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     course_id  INT(2) NOT NULL,
     semester VARCHAR(30) NOT NULL
+    
 )";
-
+//FOREIGN KEY (course_id) REFERENCES courses(course_id)
 if (mysqli_query($conn, $sql)) {
   echo "Table Semesters created successfully";
 } else {
