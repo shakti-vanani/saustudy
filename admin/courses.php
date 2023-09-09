@@ -30,6 +30,7 @@ class courses
     }
     function view()
     {
+            
         $sql = "SELECT * FROM `courses`";
         $res = mysqli_query($this->db, $sql);
         return $res;

@@ -31,7 +31,8 @@ class semester
     }
     function view()
     {
-        $sql = "SELECT * FROM `semesters`";
+        $sql="SELECT semester_id,course, semester FROM semesters INNER JOIN courses USING (course_id)";
+      
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -175,7 +176,7 @@ if (isset($_POST['update'])) {
                                     <?php echo $row["semester_id"]; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row["course_id"]; ?>
+                                    <?php echo $row["course"]; ?>
                                 </td>
                                 <td>
                                     <?php echo $row["semester"]; ?>
