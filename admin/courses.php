@@ -144,7 +144,6 @@ if (isset($_POST['update'])) {
                                         <?php echo $row["course"]; ?>
                                     </td>
                                     <td>
-
                                         <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#course-update"
                                             type="button">
                                             Update
@@ -179,7 +178,6 @@ if (isset($_POST['update'])) {
                                                                 </div>
 
                                                             </div>
-
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -188,7 +186,6 @@ if (isset($_POST['update'])) {
                                                             </button>
                                                             <button class="btn btn-primary m-3" type="submit" name="update">
                                                                 Update </button>
-
                                                         </div>
                                                     </form>
                                                 </div>
