@@ -48,11 +48,11 @@ if (isset($_POST['submit'])) {
     //echo $course_id;
     $semester_id=$_POST['semester_id'];
     $category_id=$_POST['category_id'];
-    $material=$_POST['materials'];
+    $material=$_POST['material'];
     $res = $obj->insert($course_id,$semester_id,$category_id,$material);
     if ($res) {
         //$course_id
-       header("location:material.php");
+       header("location:materials.php");
     } else {
         echo "alert('data not inserted successfully')";
     }
