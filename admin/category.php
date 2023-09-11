@@ -36,10 +36,13 @@ class category
         return $res;
     }
     function semesterview()
-    {
-        $sql = "SELECT * FROM `semesters`";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
+    {   
+        if(isset($_POST['courseid']) && !empty($_POST["course_id"]))
+        {
+            $sql = "SELECT * FROM `semesters` WHERE `course_id`=".$_POST['course_id']."";
+            $res = mysqli_query($this->db, $sql);
+            return $res;
+        }    
     }
     function courseview()
     {
@@ -93,9 +96,12 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin|Login</title>
-    <?php include 'css.php'; ?>
-</head>
+    <?php 
+    include 'css.php';
+     ?>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+</head>
 <body>
     <?php include 'menu.php'; ?>
 
@@ -128,19 +134,18 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                <?php
-
-$data = $obj->courseview();                        
-?>
-                                <select class="custom-select col-12" name="course_id">
-                                    <option selected="">Choose...</option>
+                                <select class="custom-select col-12" name="course_id" id="courseid" >
+                                    <option selected="">Choose course...</option>
                                     <?php
+                                     $data = $obj->courseview();                        
                                        while( $row = mysqli_fetch_assoc($data))
                                        {
-                                        ?>
-                                    <option value="<?php echo $row['course_id']; ?>"><?php echo $row["course"]; ?>
+                                    ?>
+                                    <option value="<?php echo $row['course_id']; ?>" ><?php echo $row["course"]; ?>
                                     </option>
-                                    <?php } ?>
+                                    <?php   } ?>
+                                     
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -151,19 +156,9 @@ $data = $obj->courseview();
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                <?php
-         
-$data = $obj->semesterview();                           
-?>
-                                <select class="custom-select col-12" name="semester_id">
-                                    <option selected="">Choose...</option>
-                                    <?php
-                                       while( $row = mysqli_fetch_assoc($data))
-                                       {
-                                        ?>
-                                    <option value="<?php echo $row['semester_id']; ?>"><?php echo $row["semester"]; ?>
-                                    </option>
-                                    <?php } ?>
+                                
+                                <select class="custom-select col-12" name="semesterid" id="semesterid">
+                                                               
                                 </select>
                             </div>
                         </div>
@@ -207,9 +202,10 @@ $data = $obj->semesterview();
                                 <td><?php echo $row['semester']; ?></td>
                                 <td><?php echo $row['category']; ?></td>
                                 <td>
-                                <a href="" class="text-primary">
-                            <span class="micon fa fa-edit">   Edit</span>
-                            </a>   |   <a href="" class="text-danger"><span class="micon ion-trash-a">   Delete</span></a>
+                                    <a href="" class="text-primary">
+                                        <span class="micon fa fa-edit"> Edit</span>
+                                    </a> | <a href="" class="text-danger"><span class="micon ion-trash-a">
+                                            Delete</span></a>
                                 </td>
                             </tr>
                             <?php } ?>
@@ -224,8 +220,29 @@ $data = $obj->semesterview();
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#courseid').on('change',function(){
+                var course_id=$(this).val();
+               // var post_id = 'id='+ course_id;
+                $.ajax({
+                    url :"load.php",
+                    type :"POST",
+                    data: {course_id:course_id},
+                    cache: false,
+                    success:function(data){
+                        $("#semesterid").html(data);
+                    }
 
-    <?php include 'js.php'; ?>
+
+                });
+
+            });
+
+        });
+
+        </script>
+<?php include 'js.php'; ?>
 </body>
 
 </html>
