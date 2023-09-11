@@ -148,7 +148,7 @@ if (isset($_POST['update'])) {
                             </label></label>
                             <div class="col-sm-12 col-md-8">
                                 
-                                <select class="custom-select col-12" name="semesterid" id="semesterid">
+                                <select class="custom-select col-12" name="semester_id" id="semesterid">
                                                                
                                 </select>
                             </div>

@@ -12,7 +12,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-
 // sql to create Courses table
 $sql = "CREATE TABLE courses 
 (
