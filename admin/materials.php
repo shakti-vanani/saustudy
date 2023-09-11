@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
     //echo $course_id;
     $semester_id=$_POST['semester_id'];
     $category_id=$_POST['category_id'];
-    $material=$_POST['material'];
+    $material=$_POST['materials'];
     $res = $obj->insert($course_id,$semester_id,$category_id,$material);
     if ($res) {
         //$course_id
@@ -65,7 +65,7 @@ if (isset($_POST['update'])) {
     $material=$_POST['material'];
     $res = $obj->edit($id,$course_id,$semester_id,$category_id,$material);
     if ($res) {
-        header("location:material.php");
+        header("location:materials.php");
     } else {
         echo "alert('data not updated successfully')";
     }
