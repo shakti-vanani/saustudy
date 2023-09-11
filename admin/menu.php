@@ -317,7 +317,14 @@
 			<div class="menu-block customscroll">
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
-						
+						<li>
+							<a href="users.php" class="dropdown-toggle no-arrow">
+							
+							<span class="micon fa fa-user"></span
+								><span class="mtext">User</span>
+								
+							</a>
+						</li>
 						<li>
 							<a href="courses.php" class="dropdown-toggle no-arrow">
 							
