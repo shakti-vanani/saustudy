@@ -339,6 +339,13 @@
 							<span class="mtext">Category</span>
 								
 							</a>
+						</li>
+						<li>
+							<a href="materials.php" class="dropdown-toggle no-arrow">
+							<span class="micon  dw dw-book1"></span>	
+							<span class="mtext">materials</span>
+								
+							</a>
 						</li>	
 						<li>
 							<div class="dropdown-divider"></div>
