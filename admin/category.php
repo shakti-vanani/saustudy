@@ -35,15 +35,6 @@ class category
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function semesterview()
-    {   
-        if(isset($_POST['courseid']) && !empty($_POST["course_id"]))
-        {
-            $sql = "SELECT * FROM `semesters` WHERE `course_id`=".$_POST['course_id']."";
-            $res = mysqli_query($this->db, $sql);
-            return $res;
-        }    
-    }
     function courseview()
     {
     $sql="SELECT * FROM `courses`"; 
