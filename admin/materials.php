@@ -230,9 +230,8 @@ if (isset($_POST['update'])) {
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#courseid').on('change',function(){
+            $("#courseid").on("change",function(){
                 var course_id=$(this).val();
-               // var post_id = 'id='+ course_id;
                 $.ajax({
                     url :"load.php",
                     type :"POST",
@@ -240,9 +239,22 @@ if (isset($_POST['update'])) {
                     cache: false,
                     success:function(data){
                         $("#semesterid").html(data);
+                        //$('#categoryid').html('<option value="">select category</option>');
                     }
+                });
 
-
+            });
+            //for select category
+            $("#semesterid").on("change",function(){
+                var semester_id=$(this).val();
+                $.ajax({
+                    url :"load.php",
+                    type :"POST",
+                    data: {semester_id:semester_id},
+                    cache: false,
+                    success:function(data){
+                        $("#categoryid").html(data);
+                    }
                 });
 
             });
