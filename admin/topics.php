@@ -195,17 +195,18 @@ if (isset($_POST['update'])) {
                                 <button type="submit" name="submit" class="btn btn-success">submit</button>
                             </div>
                         </div>
+                        <div class="form-group row pd-10">
+                            <div class="col-sm-12 col-md-8">
+                                <div id="summernote">
+                                    <p>Write Your Topics Hear</p>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
 
-            <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
-                <div class="col-md-12 col-sm-12   card-box">
-                    <div id="summernote">
-                        <p>Write Your Topics Hear</p>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="footer-wrap pd-20 mb-20 card-box">
                 Saustudy Project By:[1] Shakti Vanani [2] Viral Parmar
