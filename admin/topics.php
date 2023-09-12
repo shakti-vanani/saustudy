@@ -92,8 +92,7 @@ if (isset($_POST['update'])) {
     ?>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <link href="summernote/summernote-lite.css" rel="stylesheet">
-    <script src="summernote/summernote-lite.js"></script>
+
 </head>
 
 <body>
@@ -191,18 +190,21 @@ if (isset($_POST['update'])) {
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" placeholder="Add New material" name="material">
                             </div>
-                            
+
                         </div>
                         <div class="form-group row pd-10">
-                            <div class="col-sm-12 col-md-12">
-                                <div id="summernote">
-                                    <p>Write Your Topics Hear</p>
-                                </div>
+                            <div class="html-editor col-sm-12  pd-20 card-box mb-30">
+                                <h4 class="h4 text-blue">Your Topics Hear</h4>
+                                <p>Simple, beautiful wysiwyg editors</p>
+                                <textarea class="textarea_editor form-control border-radius-0"
+                                    placeholder="Enter text ..."></textarea>
+
                             </div>
-                            <div class="col-sm-12 col-md-2 p-2 text-center">
+                            <div class="col-sm-12  p-2 text-center">
                                 <button type="submit" name="submit" class="btn btn-success">submit</button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -262,21 +264,6 @@ if (isset($_POST['update'])) {
         });
 
     </script>
-    <script>
-        $('#summernote').summernote({
-            placeholder: 'Hello stand alone ui',
-            tabsize: 2,
-            height: 120,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script>
+
     <?php include 'js.php'; ?>
 </body>
