@@ -188,7 +188,7 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Add New material" name="topic">
+                                <input class="form-control" type="text" placeholder="Add Topic" name="topic">
                             </div>
 
                         </div>
