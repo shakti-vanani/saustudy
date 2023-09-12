@@ -191,15 +191,16 @@ if (isset($_POST['update'])) {
                             <div class="col-sm-12 col-md-8">
                                 <input class="form-control" type="text" placeholder="Add New material" name="material">
                             </div>
-                            <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="submit" class="btn btn-success">submit</button>
-                            </div>
+                            
                         </div>
                         <div class="form-group row pd-10">
-                            <div class="col-sm-12 col-md-8">
+                            <div class="col-sm-12 col-md-12">
                                 <div id="summernote">
                                     <p>Write Your Topics Hear</p>
                                 </div>
+                            </div>
+                            <div class="col-sm-12 col-md-2 p-2 text-center">
+                                <button type="submit" name="submit" class="btn btn-success">submit</button>
                             </div>
                         </div>
                     </form>
