@@ -128,17 +128,16 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                <select class="custom-select col-12" name="course_id" id="courseid" >
+                                <select class="custom-select col-12" name="course_id" id="courseid">
                                     <option selected="">Choose course...</option>
                                     <?php
-                                     $data = $obj->courseview();                        
-                                       while( $row = mysqli_fetch_assoc($data))
-                                       {
-                                    ?>
-                                    <option value="<?php echo $row['course_id']; ?>" ><?php echo $row["course"]; ?>
-                                    </option>
-                                    <?php   } ?>
-                                     
+                                    $data = $obj->courseview();
+                                    while ($row = mysqli_fetch_assoc($data)) {
+                                        ?>
+                                        <option value="<?php echo $row['course_id']; ?>"><?php echo $row["course"]; ?>
+                                        </option>
+                                    <?php } ?>
+
                                     ?>
                                 </select>
                             </div>
@@ -150,9 +149,9 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                
+
                                 <select class="custom-select col-12" name="semester_id" id="semesterid">
-                                                               
+
                                 </select>
                             </div>
                         </div>
@@ -163,9 +162,9 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                
+
                                 <select class="custom-select col-12" name="category_id" id="categoryid">
-                                                               
+
                                 </select>
                             </div>
                         </div>
@@ -176,15 +175,30 @@ if (isset($_POST['update'])) {
                                 </div>
                             </label></label>
                             <div class="col-sm-12 col-md-8">
-                                
+
                                 <select class="custom-select col-12" name="material_id" id="materialid">
-                                                               
+
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group row pd-10">
+
+                            <label class="col-sm-12 col-md-2 col-form-label">
+                                <div class="title">
+                                    <h4>material Name</h4>
+                                </div>
+                            </label>
+                            <div class="col-sm-12 col-md-8">
+                                <input class="form-control" type="text" placeholder="Add New material" name="material">
+                            </div>
+                            <div class="col-sm-12 col-md-2">
+                                <button type="submit" name="submit" class="btn btn-success">submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+
             <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
                 <div class="col-md-12 col-sm-12   card-box">
                     <div id="summernote">
@@ -200,15 +214,15 @@ if (isset($_POST['update'])) {
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#courseid").on("change",function(){
-                var course_id=$(this).val();
+        $(document).ready(function () {
+            $("#courseid").on("change", function () {
+                var course_id = $(this).val();
                 $.ajax({
-                    url :"load.php",
-                    type :"POST",
-                    data: {course_id:course_id},
+                    url: "load.php",
+                    type: "POST",
+                    data: { course_id: course_id },
                     cache: false,
-                    success:function(data){
+                    success: function (data) {
                         $("#semesterid").html(data);
                         //$('#categoryid').html('<option value="">select category</option>');
                     }
@@ -216,27 +230,27 @@ if (isset($_POST['update'])) {
 
             });
             //for select category
-            $("#semesterid").on("change",function(){
-                var semester_id=$(this).val();
+            $("#semesterid").on("change", function () {
+                var semester_id = $(this).val();
                 $.ajax({
-                    url :"load.php",
-                    type :"POST",
-                    data: {semester_id:semester_id},
+                    url: "load.php",
+                    type: "POST",
+                    data: { semester_id: semester_id },
                     cache: false,
-                    success:function(data){
+                    success: function (data) {
                         $("#categoryid").html(data);
                     }
                 });
 
             });
-            $("#categoryid").on("change",function(){
-                var category_id=$(this).val();
+            $("#categoryid").on("change", function () {
+                var category_id = $(this).val();
                 $.ajax({
-                    url :"load.php",
-                    type :"POST",
-                    data: {category_id:category_id},
+                    url: "load.php",
+                    type: "POST",
+                    data: { category_id: category_id },
                     cache: false,
-                    success:function(data){
+                    success: function (data) {
                         $("#materialid").html(data);
                     }
                 });
