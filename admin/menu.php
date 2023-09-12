@@ -102,7 +102,7 @@
 							<span class="user-icon">
 								<img src="asset/vendors/images/photo1.jpg" alt="" />
 							</span>
-							<span class="user-name">Shakti Vanani</span>
+							<span class="user-name">Viral Parmar</span>
 						</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
