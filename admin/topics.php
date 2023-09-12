@@ -184,11 +184,11 @@ if (isset($_POST['update'])) {
 
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
-                                    <h4>material Name</h4>
+                                    <h4>Topic Name</h4>
                                 </div>
                             </label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Add New material" name="material">
+                                <input class="form-control" type="text" placeholder="Add New material" name="topic">
                             </div>
 
                         </div>
@@ -196,7 +196,7 @@ if (isset($_POST['update'])) {
                             <div class="html-editor col-sm-12  pd-20 card-box mb-30">
                                 <h4 class="h4 text-blue">Your Topics Hear</h4>
                                 <p>Simple, beautiful wysiwyg editors</p>
-                                <textarea class="textarea_editor form-control border-radius-0"
+                                <textarea name="topic-detail" class="textarea_editor form-control border-radius-0"
                                     placeholder="Enter text ..."></textarea>
 
                             </div>
