@@ -10,16 +10,17 @@ class category
         $this->db = $conn;
 
     }
-    function insert($course_id,$semester_id,$category)
+    function insert($course_id, $semester_id, $category)
     {
-        echo $course_id; echo $semester_id;
+        echo $course_id;
+        echo $semester_id;
         $sql = "INSERT INTO `category`(`course_id`, `semester_id`, `category`) VALUES ('$course_id','$semester_id','$category')";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function edit($id,$course_id,$semester_id,$category)
+    function edit($id, $course_id, $semester_id, $category)
     {
-        $sql="UPDATE `category` SET `course_id`='$course_id',`semester_id`='$semester_id',`category`='$category' WHERE `category_id`='$id'";
+        $sql = "UPDATE `category` SET `course_id`='$course_id',`semester_id`='$semester_id',`category`='$category' WHERE `category_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -37,39 +38,38 @@ class category
     }
     function courseview()
     {
-    $sql="SELECT * FROM `courses`"; 
-    $res=mysqli_query($this->db,$sql);
-    return $res;    
+        $sql = "SELECT * FROM `courses`";
+        $res = mysqli_query($this->db, $sql);
+        return $res;
     }
 }
 $obj = new category();
-if (isset($_POST['submit'])) {    
-    $course_id=$_POST['course_id'];
+if (isset($_POST['submit'])) {
+    $course_id = $_POST['course_id'];
     //echo $course_id;
-    $semester_id=$_POST['semester_id'];
-    $category=$_POST['category'];
-    $res = $obj->insert($course_id,$semester_id,$category);
+    $semester_id = $_POST['semester_id'];
+    $category = $_POST['category'];
+    $res = $obj->insert($course_id, $semester_id, $category);
     if ($res) {
         //$course_id
-       header("location:category.php");
+        header("location:category.php");
     } else {
         echo "alert('data not inserted successfully')";
     }
 }
 if (isset($_POST['update'])) {
-    $id=$_POST['category_id'];
-    $course_id=$_POST['course_id'];
+    $id = $_POST['category_id'];
+    $course_id = $_POST['course_id'];
     $semester_id = $_POST['semester_id'];
-    $category=$_POST['category'];
-    $res = $obj->edit($id,$course_id,$semester_id,$category);
+    $category = $_POST['category'];
+    $res = $obj->edit($id, $course_id, $semester_id, $category);
     if ($res) {
         header("location:category.php");
     } else {
         echo "alert('data not updated successfully')";
     }
- } 
- elseif (isset($_POST['delete'])) {
-    $id=$_POST['id'];
+} elseif (isset($_POST['delete'])) {
+    $id = $_POST['id'];
     $res = $obj->delete($id);
     if ($res) {
         header("location:category.php");
@@ -87,12 +87,15 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin|Login</title>
-    <?php 
+    <?php
     include 'css.php';
-     ?>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    ?>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="summernote/summernote-lite.css" rel="stylesheet">
+    <script src="summernote/summernote-lite.js"></script>
 </head>
+
 <body>
     <?php include 'menu.php'; ?>
 
@@ -154,17 +157,29 @@ if (isset($_POST['update'])) {
                             </div>
                         </div>
                         <div class="form-group row pd-10">
-
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
-                                    <h4>Category Name</h4>
+                                    <h4>category Select</h4>
                                 </div>
-                            </label>
+                            </label></label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Add New Category" name="category">
+                                
+                                <select class="custom-select col-12" name="category_id" id="categoryid">
+                                                               
+                                </select>
                             </div>
-                            <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="submit" class="btn btn-success">submit</button>
+                        </div>
+                        <div class="form-group row pd-10">
+                            <label class="col-sm-12 col-md-2 col-form-label">
+                                <div class="title">
+                                    <h4>Material Select</h4>
+                                </div>
+                            </label></label>
+                            <div class="col-sm-12 col-md-8">
+                                
+                                <select class="custom-select col-12" name="material_id" id="materialid">
+                                                               
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -172,36 +187,9 @@ if (isset($_POST['update'])) {
             </div>
             <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
                 <div class="col-md-12 col-sm-12   card-box">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Courses</th>
-                                <th scope="col">Semesters</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $data = $obj->view();
-                            while ($row = mysqli_fetch_assoc($data)) {
-                                ?>
-                            <tr>
-                                <th scope="row"><?php echo $row['category_id']; ?></th>
-                                <td><?php echo $row['course']; ?></td>
-                                <td><?php echo $row['semester']; ?></td>
-                                <td><?php echo $row['category']; ?></td>
-                                <td>
-                                    <a href="" class="text-primary">
-                                        <span class="micon fa fa-edit"> Edit</span>
-                                    </a> | <a href="" class="text-danger"><span class="micon ion-trash-a">
-                                            Delete</span></a>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+                    <div id="summernote">
+                        <p>Write Your Topics Hear</p>
+                    </div>
                 </div>
             </div>
 
@@ -213,9 +201,8 @@ if (isset($_POST['update'])) {
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#courseid').on('change',function(){
+            $("#courseid").on("change",function(){
                 var course_id=$(this).val();
-               // var post_id = 'id='+ course_id;
                 $.ajax({
                     url :"load.php",
                     type :"POST",
@@ -223,37 +210,57 @@ if (isset($_POST['update'])) {
                     cache: false,
                     success:function(data){
                         $("#semesterid").html(data);
+                        //$('#categoryid').html('<option value="">select category</option>');
                     }
+                });
 
+            });
+            //for select category
+            $("#semesterid").on("change",function(){
+                var semester_id=$(this).val();
+                $.ajax({
+                    url :"load.php",
+                    type :"POST",
+                    data: {semester_id:semester_id},
+                    cache: false,
+                    success:function(data){
+                        $("#categoryid").html(data);
+                    }
+                });
 
+            });
+            $("#categoryid").on("change",function(){
+                var category_id=$(this).val();
+                $.ajax({
+                    url :"load.php",
+                    type :"POST",
+                    data: {category_id:category_id},
+                    cache: false,
+                    success:function(data){
+                        $("#materialid").html(data);
+                    }
                 });
 
             });
 
         });
 
-        </script>
-<?php include 'js.php'; ?>
+    </script>
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Hello stand alone ui',
+            tabsize: 2,
+            height: 120,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+    <?php include 'js.php'; ?>
 </body>
-
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Summernote</title>
-  <link href="summernote/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
-  <script src="summernote/bootstrap/js/bootstrap.min.js"></script>
-  <link href="summernote/summernote-bs4.min.css" rel="stylesheet">
-  <script src="summernote/summernote.min.js"></script>
-</head>
-<body>
-  <div id="summernote"><p>Hello Summernote</p></div>
-  <script>
-    $(document).ready(function() {
-        $('#summernote').summernote();
-    });
-  </script>
-</body>
-</html>

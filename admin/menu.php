@@ -353,6 +353,13 @@
 							<span class="mtext">materials</span>
 								
 							</a>
+						</li>
+						<li>
+							<a href="topics.php" class="dropdown-toggle no-arrow">
+							<span class="micon  dw dw-book1"></span>	
+							<span class="mtext">Topics</span>
+								
+							</a>
 						</li>	
 						<li>
 							<div class="dropdown-divider"></div>
