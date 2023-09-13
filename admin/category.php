@@ -205,10 +205,10 @@ if (isset($_POST['update'])) {
                 </div>
             </div>
 
-            <div class="footer-wrap pd-20 mb-20 card-box">
-                Saustudy Project By:[1] Shakti Vanani [2] Viral Parmar
-                <a href="https://github.com/shakti-vanani" target="_blank">Shakti Vanani</a>
-            </div>
+            
+            <!--Footer Start-->
+            <?php include 'footer.php'; ?>
+             <!--Footer End-->
         </div>
     </div>
     <script type="text/javascript">

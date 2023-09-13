@@ -18,6 +18,19 @@ echo'<option value="">select category</option>';
 while($row=mysqli_fetch_assoc($res))
 {
 echo'<option value="'.$row['category_id'].'">'.$row['category'].'</option>';
+}
+} 
+elseif(isset($_POST['category_id']))
+{
+//$category_id=$_POST['category_id'];
+$res=mysqli_query($conn,"SELECT * FROM material WHERE `category_id`=".$_POST['category_id']."");
+
+echo'<option value="">select category</option>';
+
+while($row=mysqli_fetch_assoc($res))
+{
+
+echo'<option value="'.$row['material_id'].'">'.$row['material'].'</option>';
 } 
 }
 ?>
