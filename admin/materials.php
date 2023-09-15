@@ -74,7 +74,7 @@ if (isset($_POST['update'])) {
     $id=$_POST['id'];
     $res = $obj->delete($id);
     if ($res) {
-        header("location:material.php");
+        header("location:materials.php");
     } else {
         echo "not deleted";
     }
@@ -158,13 +158,22 @@ if (isset($_POST['update'])) {
                         <div class="form-group row pd-10">
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
+                                    <h4>subject Select</h4>
+                                </div>
+                            </label></label>
+                            <div class="col-sm-12 col-md-8">                                
+                                <select class="custom-select col-12" name="subject_id" id="subjectid">                                                               
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row pd-10">
+                            <label class="col-sm-12 col-md-2 col-form-label">
+                                <div class="title">
                                     <h4>category Select</h4>
                                 </div>
                             </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                
-                                <select class="custom-select col-12" name="category_id" id="categoryid">
-                                                               
+                            <div class="col-sm-12 col-md-8">                                
+                                <select class="custom-select col-12" name="category_id" id="categoryid">                                                               
                                 </select>
                             </div>
                         </div>
@@ -220,9 +229,7 @@ if (isset($_POST['update'])) {
                         </tbody>
                     </table>
                 </div>
-            </div>
-
-            
+            </div>            
             <!--Footer Start-->
             <?php include 'footer.php'; ?>
              <!--Footer End-->
@@ -239,12 +246,9 @@ if (isset($_POST['update'])) {
                     cache: false,
                     success:function(data){
                         $("#semesterid").html(data);
-                        //$('#categoryid').html('<option value="">select category</option>');
                     }
                 });
-
             });
-            //for select category
             $("#semesterid").on("change",function(){
                 var semester_id=$(this).val();
                 $.ajax({
@@ -253,16 +257,25 @@ if (isset($_POST['update'])) {
                     data: {semester_id:semester_id},
                     cache: false,
                     success:function(data){
-                        $("#categoryid").html(data);
+                        $("#subjectid").html(data);
                     }
                 });
 
+            }); //for select a category
+            $("#subjectid").on("change",function(){
+                var subject_id=$(this).val();
+                $.ajax({
+                    url :"load.php",
+                    type :"POST",
+                    data: {subject_id:subject_id},
+                    cache: false,
+                    success:function(data){
+                        $("#categoryid").html(data);
+                    }
+                });
             });
-
         });
-
     </script>
 <?php include 'js.php'; ?>
 </body>
-
 </html>

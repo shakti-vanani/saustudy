@@ -341,6 +341,13 @@
 							</a>
 						</li>
 						<li>
+							<a href="subject.php" class="dropdown-toggle no-arrow">
+							<span class="micon  dw dw-book1"></span>	
+							<span class="mtext">subjects</span>
+								
+							</a>
+						</li>
+						<li>
 							<a href="category.php" class="dropdown-toggle no-arrow">
 							<span class="micon  dw dw-book1"></span>	
 							<span class="mtext">Category</span>

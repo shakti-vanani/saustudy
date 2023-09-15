@@ -10,28 +10,28 @@ class category
         $this->db = $conn;
 
     }
-    function insert($course_id,$semester_id,$subject_id,$category)
+    function insert($course_id,$semester_id,$subject)
     {
         echo $course_id; echo $semester_id;
-        $sql = "INSERT INTO `category`(`course_id`, `semester_id`,`subject_id`,`category`) VALUES ('$course_id','$semester_id','$subject_id','$category')";
+        $sql = "INSERT INTO `subjects`(`course_id`, `semester_id`, `subject_name`) VALUES ('$course_id','$semester_id','$subject')";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function edit($id,$course_id,$semester_id,$subject_id,$category)
+    function edit($id,$course_id,$semester_id,$subject)
     {
-        $sql="UPDATE `category` SET `course_id`='$course_id',`semester_id`='$semester_id',`subject_id`='$subject_id',`category`='$category' WHERE `category_id`='$id'";
+        $sql="UPDATE `subjects` SET `course_id`='$course_id',`semester_id`='$semester_id',`subject_name`='$subject' WHERE `subject_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
     function delete($id)
     {
-        $sql = "DELETE FROM `category` WHERE `category_id`='$id'";
+        $sql = "DELETE FROM `subjects` WHERE `subject_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
     function view()
     {
-        $sql = "SELECT category_id,course,semester,subject_name,category FROM category INNER JOIN courses USING(course_id) INNER JOIN semesters USING(semester_id) INNER JOIN subjects USING(subject_id)";
+        $sql = "SELECT subject_id,course,semester,subject_name FROM subjects INNER JOIN courses USING(course_id) INNER JOIN semesters USING(semester_id)";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -47,25 +47,23 @@ if (isset($_POST['submit'])) {
     $course_id=$_POST['course_id'];
     //echo $course_id;
     $semester_id=$_POST['semester_id'];
-    $subject_id=$_POST['subject_id'];
-    $category=$_POST['category'];
-    $res = $obj->insert($course_id,$semester_id,$subject_id,$category);
+    $subject=$_POST['subject'];
+    $res = $obj->insert($course_id,$semester_id,$subject);
     if ($res) {
         //$course_id
-       header("location:category.php");
+       header("location:subject.php");
     } else {
         echo "alert('data not inserted successfully')";
     }
 }
 if (isset($_POST['update'])) {
-    $id=$_POST['category_id'];
+    $id=$_POST['subject_id'];
     $course_id=$_POST['course_id'];
     $semester_id = $_POST['semester_id'];
-    $subject_id = $_POST['subject_id'];
-    $category=$_POST['category'];
-    $res = $obj->edit($id,$course_id,$semester_id,$subject_id,$category);
+    $subject=$_POST['subject'];
+    $res = $obj->edit($id,$course_id,$semester_id,$subject);
     if ($res) {
-        header("location:category.php");
+        header("location:subject.php");
     } else {
         echo "alert('data not updated successfully')";
     }
@@ -74,7 +72,7 @@ if (isset($_POST['update'])) {
     $id=$_POST['id'];
     $res = $obj->delete($id);
     if ($res) {
-        header("location:category.php");
+        header("location:subject.php");
     } else {
         echo "not deleted";
     }
@@ -110,7 +108,7 @@ if (isset($_POST['update'])) {
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">
-                                    category
+                                    subjects
                                 </li>
                             </ol>
                         </nav>
@@ -156,27 +154,14 @@ if (isset($_POST['update'])) {
                             </div>
                         </div>
                         <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Subject Select</h4>
-                                </div>
-                            </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                
-                                <select class="custom-select col-12" name="subject_id" id="subjectid">
-                                                               
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row pd-10">
 
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
-                                    <h4>Category Name</h4>
+                                    <h4>subject Name</h4>
                                 </div>
                             </label>
                             <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Add New Category" name="category">
+                                <input class="form-control" type="text" placeholder="Add New subjects" name="subject">
                             </div>
                             <div class="col-sm-12 col-md-2">
                                 <button type="submit" name="submit" class="btn btn-success">submit</button>
@@ -194,7 +179,6 @@ if (isset($_POST['update'])) {
                                 <th scope="col">Courses</th>
                                 <th scope="col">Semesters</th>
                                 <th scope="col">subject</th>
-                                <th scope="col">Category</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -204,11 +188,10 @@ if (isset($_POST['update'])) {
                             while ($row = mysqli_fetch_assoc($data)) {
                                 ?>
                             <tr>
-                                <th scope="row"><?php echo $row['category_id']; ?></th>
+                                <th scope="row"><?php echo $row['subject_id']; ?></th>
                                 <td><?php echo $row['course']; ?></td>
                                 <td><?php echo $row['semester']; ?></td>
                                 <td><?php echo $row['subject_name']; ?></td>
-                                <td><?php echo $row['category']; ?></td>
                                 <td>
                                     <a href="" class="text-primary">
                                         <span class="micon fa fa-edit"> Edit</span>
@@ -227,11 +210,9 @@ if (isset($_POST['update'])) {
             <?php include 'footer.php'; ?>
              <!--Footer End-->
         </div>
-    
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
-            // for select a semesters
             $('#courseid').on('change',function(){
                 var course_id=$(this).val();
                 $.ajax({
@@ -242,23 +223,11 @@ if (isset($_POST['update'])) {
                     success:function(data){
                         $("#semesterid").html(data);
                     }
-                });
-            });
-             // for select a subjects
-            $("#semesterid").on("change",function(){
-                var semester_id=$(this).val();
-                $.ajax({
-                    url :"load.php",
-                    type :"POST",
-                    data: {semester_id:semester_id},
-                    cache: false,
-                    success:function(data){
-                        $("#subjectid").html(data);
-                    }
+
+
                 });
 
             });
-
         });
 
         </script>
