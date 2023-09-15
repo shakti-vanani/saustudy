@@ -1,21 +1,26 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 body {
-    background: #50C9C3;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #96DEDA, #50C9C3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #50C9C3;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #96DEDA, #50C9C3);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+
 input:focus {
-   
-background: rgba(242, 208, 168, 0.36);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5.9px);
--webkit-backdrop-filter: blur(5.9px);
-border: 1px solid rgba(255, 191, 117, 0.67);
-  }
-.btn:hover{
+
+    background: rgba(242, 208, 168, 0.36);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(255, 191, 117, 0.67);
+}
+
+.btn:hover {
     background: rgba(176, 255, 6, 0.875);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(176, 255, 6, 0.875);
@@ -23,23 +28,34 @@ border: 1px solid rgba(255, 191, 117, 0.67);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 29, 240, 0.3);
 }
+
 .nav-item:hover {
 
-    background: rgba(255, 29, 240, 0.37);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(231, 255, 10, 0.861);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 29, 240, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.4px);
+    -webkit-backdrop-filter: blur(9.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .active {
-    background: rgba(255, 29, 240, 0.37);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(231, 255, 10, 0.861);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 29, 240, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.4px);
+    -webkit-backdrop-filter: blur(9.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.viral-card-4 {
+
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.4px);
+    -webkit-backdrop-filter: blur(9.4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .viral-card-3 {
