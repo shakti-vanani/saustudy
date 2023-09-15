@@ -21,7 +21,7 @@ HTML, CSS,Javascript,Bootstrap,PHP,PHP OOP,MySQL(phpmyadmin)
 
 **Freamework:** Bootstrap 5.3
 
-**Theme:** AdminLTE v3.2.0
+**Admin Theme:** AdminLTE v3.2.0
 
 **DATABASE:** phpmyadmin,mysql
 
