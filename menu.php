@@ -10,6 +10,15 @@
 				<li class="nav-item">
 					<a class="nav-link " href="#">Home</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="#">Courses</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="#">Home</a>
+				</li>
 			</ul>
 			<form class="d-flex" role="search">
 				<input class="viral-card-1 me-2" type="search" placeholder="Search" aria-label="Search">
