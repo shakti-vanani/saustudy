@@ -13,7 +13,20 @@
 
 	<div class="container">
 		<div class="row viral-card mt-3">
-			<div class="col  m-1">
+			<div class="col viral-card m-1">
+				<pre>
+					devloper
+				devloper
+				devloper
+				devloper
+				devloper
+				devloper
+				devloper</pre>
+			</div>
+			<div class="col viral-card m-1">
+				devloper
+			</div>
+			<div class="col viral-card m-1">
 				devloper
 			</div>
 		</div>
