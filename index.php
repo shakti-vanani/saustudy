@@ -12,7 +12,7 @@
 	<?php include 'menu.php'; ?>
 
 	<div class="container">
-		<div class="row viral-card mt-3">
+		<div class="row mt-3">
 			<div class="col viral-card m-1">
 				<pre>
 					devloper

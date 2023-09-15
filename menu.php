@@ -21,7 +21,7 @@
 				</li>
 			</ul>
 			<form class="d-flex" role="search">
-				<input class="viral-card-1 me-2" type="search" placeholder="Search" aria-label="Search">
+				<input class="viral-card me-2" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn viral-card-2" type="submit">Search</button>
 			</form>
 		</div>
