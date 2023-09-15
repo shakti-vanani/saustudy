@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="asset/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="asset/css/edua-icons.css">
-<link rel="stylesheet" type="text/css" href="asset/css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="asset/css/owl.carousel.css">
-<link rel="stylesheet" type="text/css" href="asset/css/owl.transitions.css">
-<link rel="stylesheet" type="text/css" href="asset/css/cubeportfolio.min.css">
-<link rel="stylesheet" type="text/css" href="asset/css/settings.css">
-<link rel="stylesheet" type="text/css" href="asset/css/bootsnav.css">
-<link rel="stylesheet" type="text/css" href="asset/css/style.css">
-<link rel="stylesheet" type="text/css" href="asset/css/loader.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Google Font -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="admin/asset/vendors/styles/core.css" />
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="admin/asset/vendors/styles/icon-font.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="admin/asset/src/plugins/jvectormap/jquery-jvectormap-2.0.3.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="admin/asset/vendors/styles/style.css" />
 
-<link rel="icon" href="asset/images/favicon.png">
 </head>
 <body>
-  
+    
 </body>
 </html>
-

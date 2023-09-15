@@ -1,128 +1,195 @@
-<a href="#" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
-<!--Loader-->
-<div class="loader">
-  <div class="bouncybox">
-      <div class="bouncy"></div>
-    </div>
-</div>
-
-<div class="topbar">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="pull-left">
-        <span class="info"><a href="#."> Have any question?</a></span>
-        <span class="info"><i class="icon-phone2"></i>+91 ********</span>
-        <span class="info"><i class="icon-mail"></i>saustudy@saustudy.com</span>
-        </div>
-        <ul class="social_top pull-right">
-          <li><a href="#."><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#."><i class="icon-twitter4"></i></a></li>
-          <li><a href="#."><i class="icon-google"></i></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--Header-->
-<header>
-  <nav class="navbar navbar-default navbar-fixed white no-background bootsnav">
-    <div class="container"> 
-       <div class="search_btn btn_common"><i class="icon-icons185"></i></div>
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="index.php"><img src="asset/images/saustudy-logo.png" alt="logo" class="logo logo-display">
-        <img src="asset/images/saustudy-logo.png" class="logo logo-scrolled" alt="">
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="navbar-menu">
-        <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOut">
-          
-              <li><a href="index.php">Home</a></li>
-              
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >courses</a>
-            <ul class="dropdown-menu">
-              <li><a href="courses.html">Courses</a></li>
-              <li><a href="course_detail.html">Courses Detail</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >events</a>
-            <ul class="dropdown-menu">
-              <li><a href="event.html">events</a></li>
-              <li><a href="event_detail.html">Events Detail</a></li>
-            </ul>
-          </li>
-          
-          <li class="dropdown megamenu-fw">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-            <ul class="dropdown-menu megamenu-content" role="menu">
-              <li>
-                <div class="row">
-                  <div class="col-menu col-md-3">
-                    <h6 class="title">Pages</h6>
-                    <div class="content">
-                      <ul class="menu-col">
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="testinomial.html">Testinomial</a></li>
-                        <li><a href="teachers.html">Teachers</a></li>
-                        <li><a href="pricing.html">Pricings</a></li>
-                      </ul>
-                    </div> 
-                  </div>
-                  <div class="col-menu col-md-3">
-                    <h6 class="title">Blog</h6>
-                    <div class="content">
-                      <ul class="menu-col">
-                        <li><a href="blog.html">Blog 01</a></li>
-                        <li><a href="blog2.html">Blog 02</a></li>
-                        <li><a href="blog3.html">Blog 03</a></li>
-                        <li><a href="blog_detail.html">Blog Detail</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-menu col-md-3">
-                    <h6 class="title">Shop</h6>
-                    <div class="content">
-                      <ul class="menu-col">
-                        <li><a href="shop.html">Shop</a></li>
-                        <li><a href="shop_detail.html">Shop Detail</a></li>
-                        <li><a href="shop_cart.html">Cart</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col-menu col-md-3">
-                    <h6 class="title">Others</h6>
-                    <div class="content">
-                      <ul class="menu-col">
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="faq.html">Faq</a></li>
-                        <li><a href="404.html">404</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-    </div>   
-  </nav>
-</header>
-
-
-<!--Search-->
-<div id="search">
-  <button type="button" class="close">×</button>
-  <form>
-    <input type="search" value="" placeholder="Search here...."  required/>
-    <button type="submit" class="btn btn_common blue">Search</button>
-  </form>
-</div>
+<div class="header">
+			<div class="header-left">
+				<div class="menu-icon bi bi-list"></div>
+				<div
+					class="search-toggle-icon bi bi-search"
+					data-toggle="header_search"
+				></div>
+				<div class="header-search">
+					<form>
+						<div class="form-group mb-0">
+							<i class="dw dw-search2 search-icon"></i>
+							<input
+								type="text"
+								class="form-control search-input"
+								placeholder="Search Here"
+							/>
+							<div class="dropdown">
+								<a
+									class="dropdown-toggle no-arrow"
+									href="#"
+									role="button"
+									data-toggle="dropdown"
+								>
+									<i class="ion-arrow-down-c"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="form-group row">
+										<label class="col-sm-12 col-md-2 col-form-label"
+											>From</label
+										>
+										<div class="col-sm-12 col-md-10">
+											<input
+												class="form-control form-control-sm form-control-line"
+												type="text"
+											/>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-12 col-md-2 col-form-label">To</label>
+										<div class="col-sm-12 col-md-10">
+											<input
+												class="form-control form-control-sm form-control-line"
+												type="text"
+											/>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label class="col-sm-12 col-md-2 col-form-label"
+											>Subject</label
+										>
+										<div class="col-sm-12 col-md-10">
+											<input
+												class="form-control form-control-sm form-control-line"
+												type="text"
+											/>
+										</div>
+									</div>
+									<div class="text-right">
+										<button class="btn btn-primary">Search</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="header-right">
+				<div class="dashboard-setting user-notification">
+					<div class="dropdown">
+						<a
+							class="dropdown-toggle no-arrow"
+							href="javascript:;"
+							data-toggle="right-sidebar"
+						>
+							<i class="dw dw-settings2"></i>
+						</a>
+					</div>
+				</div>
+				<div class="user-notification">
+					<div class="dropdown">
+						<a
+							class="dropdown-toggle no-arrow"
+							href="#"
+							role="button"
+							data-toggle="dropdown"
+						>
+							<i class="icon-copy dw dw-notification"></i>
+							<span class="badge notification-active"></span>
+						</a>
+						<div class="dropdown-menu dropdown-menu-right">
+							<div class="notification-list mx-h-350 customscroll">
+								<ul>
+									<li>
+										<a href="#">
+											<img src="vendors/images/img.jpg" alt="" />
+											<h3>John Doe</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="vendors/images/photo1.jpg" alt="" />
+											<h3>Lea R. Frith</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="vendors/images/photo2.jpg" alt="" />
+											<h3>Erik L. Richards</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="vendors/images/photo3.jpg" alt="" />
+											<h3>John Doe</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="vendors/images/photo4.jpg" alt="" />
+											<h3>Renee I. Hansen</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<img src="vendors/images/img.jpg" alt="" />
+											<h3>Vicki M. Coleman</h3>
+											<p>
+												Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed...
+											</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="user-info-dropdown">
+					<div class="dropdown">
+						<a
+							class="dropdown-toggle"
+							href="#"
+							role="button"
+							data-toggle="dropdown"
+						>
+							<span class="user-icon">
+								<img src="vendors/images/photo1.jpg" alt="" />
+							</span>
+							<span class="user-name">Ross C. Lopez</span>
+						</a>
+						<div
+							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
+						>
+							<a class="dropdown-item" href="profile.html"
+								><i class="dw dw-user1"></i> Profile</a
+							>
+							<a class="dropdown-item" href="profile.html"
+								><i class="dw dw-settings2"></i> Setting</a
+							>
+							<a class="dropdown-item" href="faq.html"
+								><i class="dw dw-help"></i> Help</a
+							>
+							<a class="dropdown-item" href="login.html"
+								><i class="dw dw-logout"></i> Log Out</a
+							>
+						</div>
+					</div>
+				</div>
+				<div class="github-link">
+					<a href="https://github.com/dropways/deskapp" target="_blank"
+						><img src="vendors/images/github.svg" alt=""
+					/></a>
+				</div>
+			</div>
+		</div>
