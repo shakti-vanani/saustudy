@@ -67,22 +67,6 @@ if (mysqli_query($conn, $sql)) {
 } else {
   echo "Error creating table: " . mysqli_error($conn);
 }
-// sql to create Material table
-$sql = "CREATE TABLE material
-(
-    material_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    course_id  INT(2) NOT NULL,
-    semester_id INT(2) NOT NULL,
-    subject_id INT(2) NOT NULL,
-    category_id INT(2) NOT NULL,
-    material VARCHAR(30) NOT NULL
-)";
-
-if (mysqli_query($conn, $sql)) {
-  echo "Table materials created successfully";
-} else {
-  echo "Error creating table: " . mysqli_error($conn);
-}
 //sql to topics table
 $sql = "CREATE TABLE topics
 (
@@ -91,7 +75,6 @@ $sql = "CREATE TABLE topics
     semester_id INT(2) NOT NULL,
     subject_id INT(2) NOT NULL,
     category_id INT(2) NOT NULL,
-    material_id INT(2) NOT NULL,
     topic VARCHAR(30) NOT NULL,
     topic_detail VARCHAR(100) NOT NULL,
     create_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

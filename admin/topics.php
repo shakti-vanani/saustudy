@@ -9,15 +9,15 @@ class category
         //$conn= new mysqli('localhost','root','','saustudy');
         $this->db = $conn;
     }
-    function insert($course_id, $semester_id,$subject_id, $category_id,$material_id,$topic,$topic_detail)
+    function insert($course_id, $semester_id,$subject_id, $category_id,$topic,$topic_detail)
     {
-        $sql = "INSERT INTO `topics`(`course_id`, `semester_id`, `subject_id`, `category_id`, `material_id`,`topic`, `topic_detail`) VALUES ('$course_id','$semester_id','$subject_id','$category_id','$material_id','$topic','$topic_detail')";
+        $sql = "INSERT INTO `topics`(`course_id`, `semester_id`, `subject_id`, `category_id`,`topic`, `topic_detail`) VALUES ('$course_id','$semester_id','$subject_id','$category_id','$topic','$topic_detail')";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
-    function edit($id,$course_id, $semester_id,$subject_id, $category_id,$material_id,$topic,$topic_detail)
+    function edit($id,$course_id, $semester_id,$subject_id, $category_id,$topic,$topic_detail)
     {
-        $sql = "UPDATE `topics` SET `course_id`='$course_id',`semester_id`='$semester_id',`subject_id`='$subject_id',`category_id`='$category_id',`material_id`='$material_id',`topic`='$topic',`topic_detail`='$topic_detail' WHERE `topic_id`='$id'";
+        $sql = "UPDATE `topics` SET `course_id`='$course_id',`semester_id`='$semester_id',`subject_id`='$subject_id',`category_id`='$category_id',`topic`='$topic',`topic_detail`='$topic_detail' WHERE `topic_id`='$id'";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -29,7 +29,7 @@ class category
     }
     function view()
     {
-        $sql = "SELECT topic_id,course,semester,subject_name,category,material,topic,topic_detail,create_at,update_at FROM topics INNER JOIN courses USING(course_id) INNER JOIN semesters USING(semester_id) INNER JOIN subjects USING(subject_id) INNER JOIN category USING(category_id) INNER JOIN material USING(material_id)";
+        $sql = "SELECT topic_id,course,semester,subject_name,category,topic,topic_detail,create_at,update_at FROM topics INNER JOIN courses USING(course_id) INNER JOIN semesters USING(semester_id) INNER JOIN subjects USING(subject_id) INNER JOIN category USING(category_id)";
         $res = mysqli_query($this->db, $sql);
         return $res;
     }
@@ -46,10 +46,9 @@ if (isset($_POST['submit'])) {
     $semester_id = $_POST['semester_id'];
     $subject_id = $_POST['subject_id'];
     $category_id = $_POST['category_id'];
-    $material_id = $_POST['material_id'];
     $topic= $_POST['topic'];
     $topic_detail= $_POST['topic_detail'];
-    $res = $obj->insert($course_id, $semester_id,$subject_id,$category_id,$material_id,$topic,$topic_detail);
+    $res = $obj->insert($course_id, $semester_id,$subject_id,$category_id,$topic,$topic_detail);
     if ($res) {
         header("location:topics.php");
     } else {
@@ -62,10 +61,9 @@ if (isset($_POST['update'])) {
     $semester_id = $_POST['semester_id'];
     $subject_id = $_POST['subject_id'];
     $category_id = $_POST['category_id'];
-    $material_id= $_POST['material_id'];
     $topic= $_POST['topic'];
     $topic_detail= $_POST['topic_detail'];
-    $res = $obj->edit($id,$course_id, $semester_id,$subject_id,$category_id,$material_id,$topic,$topic_detail);
+    $res = $obj->edit($id,$course_id, $semester_id,$subject_id,$category_id,$topic,$topic_detail);
     if ($res) {
         header("location:topics.php");
     } else {
@@ -171,17 +169,6 @@ if (isset($_POST['update'])) {
                             </div>
                         </div>
                         <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Material Select</h4>
-                                </div>
-                            </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                <select class="custom-select col-12" name="material_id" id="materialid">
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row pd-10">
 
                             <label class="col-sm-12 col-md-2 col-form-label">
                                 <div class="title">
@@ -216,7 +203,6 @@ if (isset($_POST['update'])) {
                                 <th scope="col">Semesters</th>
                                 <th scope="col">Subject</th>
                                 <th scope="col">category</th>
-                                <th scope="col">material</th>
                                 <th scope="col">topic</th>
                                 <th scope="col">topic_detail</th>
                                 <th scope="col">create_at</th>
@@ -235,7 +221,6 @@ if (isset($_POST['update'])) {
                                 <td><?php echo $row['semester']; ?></td>
                                 <td><?php echo $row['subject_name']; ?></td>
                                 <td><?php echo $row['category']; ?></td>
-                                <td><?php echo $row['material']; ?></td>
                                 <td><?php echo $row['topic']; ?></td>
                                 <td><?php echo $row['topic_detail']; ?></td>
                                 <td><?php echo $row['create_at']; ?></td>
@@ -271,7 +256,6 @@ if (isset($_POST['update'])) {
                         //$('#categoryid').html('<option value="">select category</option>');
                     }
                 });
-
             });
             //for select category
             $("#semesterid").on("change", function () {
@@ -285,7 +269,6 @@ if (isset($_POST['update'])) {
                         $("#subjectid").html(data);
                     }
                 });
-
             });
             $("#subjectid").on("change", function () {
                 var subject_id = $(this).val();
@@ -298,21 +281,7 @@ if (isset($_POST['update'])) {
                         $("#categoryid").html(data);
                     }
                 });
-
-            });
-            $("#categoryid").on("change", function () {
-                var category_id = $(this).val();
-                $.ajax({
-                    url: "load.php",
-                    type: "POST",
-                    data: { category_id: category_id },
-                    cache: false,
-                    success: function (data) {
-                        $("#materialid").html(data);
-                    }
-                });
-
-            });
+            });            
         });
     </script>
     <?php include 'js.php'; ?>

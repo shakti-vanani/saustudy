@@ -29,7 +29,7 @@ while($row=mysqli_fetch_assoc($res))
 {
 echo'<option value="'.$row['category_id'].'">'.$row['category'].'</option>';
 }
-} 
+} /*
 elseif(isset($_POST['category_id']))
 {
 //$category_id=$_POST['category_id'];
@@ -42,5 +42,5 @@ while($row=mysqli_fetch_assoc($res))
 
 echo'<option value="'.$row['material_id'].'">'.$row['material'].'</option>';
 } 
-}
+}*/
 ?>
