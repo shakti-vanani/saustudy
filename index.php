@@ -18,21 +18,21 @@
 				Bca
             	<p>Bachlor Of Computer Application....</p>
 				<form action="semesters.php" method="POST">
-				<button class="btn btn-primary m-3" type="submit" name="semester">View Semester</button>
+				<button class="btn viral-card-2 m-3" type="submit" name="semester">View Semester</button>
 				</form>
 			</div>
 			<div class="col viral-card m-1">
 				B.com
 				<p>Bachlor Of Commerce....</p>
 				<form action="semesters.php" method="POST">
-				<button class="btn btn-primary m-3" type="submit" name="semester">view Semester</button>
+				<button class="btn viral-card-2 m-3" type="submit" name="semester">view Semester</button>
 				</form>
 			</div>
 			<div class="col viral-card m-1">
 				Bsc
 				<p>Bachlor Of Science....</p>
 				<form action="semesters.php" method="POST">
-				<button class="btn btn-primary m-3" type="submit" name="semester">View Semester</button>
+				<button class="btn viral-card-2 m-3" type="submit" name="semester">View Semester</button>
 				</form>
 			</div>
 		</div>
