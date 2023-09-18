@@ -15,7 +15,8 @@
     <div class="container">
         <div class="row mt-3">
             <?php
-                    $id=$_POST['course_id'];
+                    $id=$_POST['semester'];
+                   // echo $id;
 					 $sql="SELECT * FROM semesters WHERE course_id='$id'";      
 					 $res = mysqli_query($conn, $sql);
 					 
