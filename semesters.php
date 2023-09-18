@@ -14,23 +14,30 @@
 
     <div class="container">
         <div class="row mt-3">
-            <?php
-                    $id=$_POST['semester'];
-                   // echo $id;
-					 $sql="SELECT * FROM semesters WHERE course_id='$id'";      
-					 $res = mysqli_query($conn, $sql);
-					 
-					 while ($row = mysqli_fetch_assoc($res)) {
-						?>
-            <div class="col viral-card m-1">
-                <?php echo $row["semester"]; ?>
 
-                <form action="subject.php" method="POST">
-                    <button class="btn viral-card-2 m-3" type="submit" name="subject">Select subject</button>
-                </form>
-            </div>
-            <?php }
-             ?>
+			<?php
+			 $id=$_POST['course_id'];
+             // echo $id;
+               $sql="SELECT * FROM semesters WHERE course_id='$id'";      
+               $res = mysqli_query($conn, $sql);
+               
+               while ($row = mysqli_fetch_assoc($res)) {
+				?>
+				<div class="col  m-1">
+					<div class="card viral-card m-1 text-center p-1">
+						<h4>
+                        <?php echo $row["semester"]; ?>
+						</h4>
+						<form action="subject.php" method="POST">
+							<button class="btn viral-card-2 m-3" type="submit" name="course_id"
+								value="<?php echo $row["semester_id"]; ?>">View subject</button>
+						</form>
+					</div>
+
+				</div>
+			<?php } ?>
+           
+           
         </div>
     </div>
     </div>
