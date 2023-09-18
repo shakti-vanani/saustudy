@@ -12,7 +12,7 @@
 <body>
     <?php include 'menu.php'; ?>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row mt-3">
 
             <?php
@@ -23,7 +23,7 @@
 
             while ($row = mysqli_fetch_assoc($res)) {
                 ?>
-                <div class="col  m-1">
+                <div class="col-md-4 col-sm-12  m-1">
                     <div class="card viral-card m-1 text-center p-1">
                         <h4>
                             <?php echo $row["subject_name"];
