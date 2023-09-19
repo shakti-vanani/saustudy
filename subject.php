@@ -1,4 +1,14 @@
-<?php include 'admin/database/db.php'; ?>
+<?php 
+include 'admin/error.php';
+session_start();
+// Include database connection file
+include_once('admin/database/db.php');
+if (!isset($_SESSION['ID'])) {
+    header("Location:index.php");
+    exit();
+}
+if(2==$_SESSION['ROLE']){
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,3 +72,10 @@
 </body>
 
 </html>
+
+<?php }else{
+            session_destroy();
+            header("Location:index.php");
+        }
+        
+        ?>

@@ -21,9 +21,15 @@
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
             $_SESSION['ID'] = $row['id'];
-            $_SESSION['ROLE'] = $row['role'];
-            $_SESSION['NAME'] = $row['name'];
-            header("Location:dashboard.php");
+            $_SESSION['ROLE'] = $row['user_role'];
+            $_SESSION['USERNAME'] = $row['username'];
+            if(0==$row['user_role']){
+            header("Location:admin/index.php");
+            }elseif(1==$row['user_role']){
+                header("Location:admin/index.php");
+            }elseif(2==$row['user_role']){
+                header("Location:dashboard.php");
+            }
             die();                              
         }else{
           $errorMsg = "No user found on this username";

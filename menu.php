@@ -25,10 +25,8 @@
 				<h4 id=" " class="m-1 "><i class="sun-moon bi bi-sun"></i></h4>
 				</li>
 			</ul>
-			<form class="d-flex" role="search">
-				<input class="viral-card me-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn  viral-card-2" type="submit">Search</button>
-				
+			<form class="d-flex">
+			<a class="nav-link text-dark" href="logout.php">Hi, <?php echo ucwords($_SESSION['USERNAME']); ?> <span class="btn viral-card text-danger">Logout</span></a>
 			</form>
 		</div>
 	</div>
