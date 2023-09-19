@@ -12,7 +12,7 @@
 <body>
     <?php include 'menu.php'; ?>
 
-    <div class="container-fluid">
+    <div class="container">
     <div class="row mt-3">
 			<?php include 'slider.php'; ?>
 		</div>
