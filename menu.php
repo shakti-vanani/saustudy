@@ -21,8 +21,8 @@
 				<li class="nav-item ">
 					<a class="nav-link " href="#">Home</a>
 				</li>
-				<li class="nav-item text-center">
-				<h4  class="nav-link dark bi bi-sun"></h4>
+				<li class="nav-item ">
+				<h4 id=" " class="dark"><i class="sun-moon bi bi-sun"></i></h4>
 				</li>
 			</ul>
 			<form class="d-flex" role="search">
