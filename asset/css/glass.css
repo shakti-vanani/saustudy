@@ -92,3 +92,7 @@ input:focus {
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
+.logo{
+    width: 50%;
+    height: 50%;
+}

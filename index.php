@@ -11,11 +11,14 @@
 
 <body>
 
-	<div class="container-fluid ">
+	<div class="container-fluid   ">
 		
-		<div class="row center mt-3">
-		<div class="col-md-5 col-sm-12 m-2">
-                        <form class="viral-card p-2">
+		<div class="row  d-flex  justify-content-center  mt-3">
+		<div class="col-md-4  col-sm-12">
+						<div class="d-flex  justify-content-center  mt-3">
+							<img class="logo" src="asset/images/saurashtra-university-logo.png" alt="" srcset="">
+						</div>
+                        <form class="viral-card mt-3 aline-item-center  p-2">
                             
                             <div class="input-group mb-3">
                                 <span class="input-group-text viral-card-2 m-1 p-2" id="Email"><i
@@ -34,7 +37,7 @@
                               </div>
                            
                            <div class="mb-3 text-center">
-                            <button type="submit" class="btn viral-card-2 ">Submit</button>
+                            <button type="submit" class="btn viral-card-2 ">login</button>
                         </div>
                         </form>
                     </div>
