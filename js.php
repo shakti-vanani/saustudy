@@ -7,6 +7,9 @@
 </head>
 <body>
     <!-- js -->
+        <script src="asset/js/dark-light-theme.js"></script>
+        <script src="asset/js/jquery.min.js"></script>
 		<script src="asset/js/bootstrap.bundle.min.js"></script>
+        
 </body>
 </html>

@@ -12,10 +12,14 @@
       </div>
     </div>
     <div class="carousel-item  " style="height: 200px;">
-      demo
+    <div class="text-center mt-3">
+        <h3>saurashtra university </h3>
+      </div>
     </div>
     <div class="carousel-item " style="height: 200px;">
-      demo
+    <div class="text-center mt-3">
+        <h3>saurashtra university </h3>
+      </div>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
