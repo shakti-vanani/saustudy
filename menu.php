@@ -1,7 +1,7 @@
-<nav class="navbar viral-card  m-2 navbar-expand-lg mt-3 ">
+<nav class="navbar container top-0 start-50 translate-middle-x viral-card  m-2 navbar-expand-lg mt-3 ">
 	<div class="container-fluid ">
 	
-		<a class="navbar-brand text-white p-2" href="#"> Saustudy </a>
+		<a class="navbar-brand  p-2" href="#"> Saustudy </a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -21,13 +21,8 @@
 				<li class="nav-item ">
 					<a class="nav-link " href="#">Home</a>
 				</li>
-				<li class="nav-item">
-				<label class="checkgroup" for="toggle">
-	<span class="checkbox">
-		<input name="toggle" id="toggle" type="checkbox">
-		<span class="checkmark"></span>
-	</span>
-</label>
+				<li class="nav-item text-center">
+				<h4  class="nav-link dark bi bi-sun"></h4>
 				</li>
 			</ul>
 			<form class="d-flex" role="search">
