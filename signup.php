@@ -1,83 +1,64 @@
+<?php include 'admin/database/db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>insert</title>
-    <?php include 'css.php'; ?>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Saustudy</title>
+	<?php include 'css.php'; ?>
 </head>
 
 <body>
-    <?php include 'menu.php'; ?>
 
-        <!--Page Header-->
-        <section class="page_header padding-top">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-12 page-content">
-                <h1>Signup</h1>
-                <p>We offer the most complete house renovating services in the country</p>
-                <div class="page_nav">
-            <span>You are here:</span> <a href="index.html">Home</a> <span><i class="fa fa-angle-double-right"></i>Signup</span>
-            </div>
-            </div>
-            </div>
-        </div>
-        </section>
-        
-<!--Contact Deatils -->
-<section id="contact" class="padding">
-  <div class="container">
-    <div class="row padding-bottom">
-      <div class="col-md-8 wow fadeInRight" data-wow-delay="500ms">
-        <h2 class="heading heading_space">Signup Form<span class="divider-left"></span></h2>
-        <form class="form-inline findus" id="contact-form" method="POST" action="main.php">
-          <div class="row">
-            <div class="col-md-12">
-              <div id="result"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 col-sm-12">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name"  name="fname" id="name" required>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="lName"  name="lfname" id="lname" required>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email" name="email" id="email" required>
-              </div>
-            </div>
-            <div class="col-md-12 col-sm-12">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="username"  name="username" id="username" required>
-              </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="password"  name="password" id="password" required>
-              </div>
-            </div>
-            
-            <div class="col-md-12">
-              <button class="btn_common yellow border_radius" type="submit" name="submit">Submit</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Contact Deatils -->
-    <?php include 'footor.php'; ?>
-    <?php include 'js.php'; ?>
+	<div class="container-fluid   ">
+		
+		<div class="row  d-flex  justify-content-center  mt-3">
+		<div class="col-md-4  col-sm-12">
+						<div class="d-flex  justify-content-center  mt-3">
+							<img class="logo" src="asset/images/saurashtra-university-logo.png" alt="" srcset="">
+						</div>
+                        <form class="viral-card mt-3 aline-item-center  p-2">
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="Email"><i
+                                    class="bi bi-envelope-at"></i></span>
+                                <input type="email" class="viral-card-1 m-1 p-2" placeholder="Email">
+                              </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="basic-addon1"><i
+                                    class="bi bi-person-circle"></i></span>
+                                <input type="text" class="viral-card-1 m-1 p-2" placeholder="Username">
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="basic-addon1"><i
+                                    class="bi bi-person-circle"></i></span>
+                                <input type="text" class="viral-card-1 m-1 p-2" placeholder="Name">
+                              </div>
+                              
+                              <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="basic-addon1"><i
+                                    class="bi bi-shield-lock"></i></span>
+                                <input type="password" class="viral-card-1 m-1 p-2" placeholder="Password">
+                              </div>
+                           
+                           <div class="mb-3 text-center">
+                            <button type="submit" class="btn viral-card-2 ">Sign Up</button>
+                            </div>
+                            <div class="mb-3 text-center text-black">
+                            <h3>you have alrady Account to </h3> 
+                            </div>
+                           
+                            <div class="mb-3 text-center">
+                            <a href="index.php" type="submit" class="btn viral-card-2 ">Login</a>
+                            </div>
+                        </form>
+                    </div>
+		</div>
+	</div>
+	</div>
+
+	<?php include 'js.php'; ?>
 </body>
 
 </html>
