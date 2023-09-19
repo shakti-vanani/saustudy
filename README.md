@@ -23,6 +23,8 @@ HTML, CSS,Javascript,Bootstrap,PHP,PHP OOP,MySQL(phpmyadmin)
 
 **Admin Theme:** AdminLTE v3.2.0
 
+**User Theme:** Glass morphism
+
 **DATABASE:** phpmyadmin,mysql
 
 **Software:** VS Code,Xampp,Chrome
