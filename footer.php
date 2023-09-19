@@ -1,4 +1,4 @@
 
-<div class="btn viral-card  text-center p-1 mt-3 align-self-end">
+<div class="btn viral-card  position-absolute bottom-0 start-50 translate-middle-x mb-4">
 ©Viral-Parmar
 				</div>

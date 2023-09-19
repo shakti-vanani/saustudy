@@ -13,10 +13,10 @@
 	<?php include 'menu.php'; ?>
 
 	<div class="container ">
-		<div class="row mt-3">
+		<div class="row mt-1">
 			<?php include 'slider.php'; ?>
 		</div>
-		<div class="row mt-3">
+		<div class="row mt-1">
 
 			<?php
 			$sql = "SELECT * FROM courses";

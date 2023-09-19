@@ -33,7 +33,7 @@
 						</h4>
 						<form action="subject.php" method="POST">
 							<button class="btn viral-card-2 m-3" type="submit" name="semester_id"
-								value="<?php echo $row["semester_id"]; ?>">View subject</button>
+								value="<?php echo $row["semester_id"]; ?>">View</button>
 						</form>
 					</div>
 
