@@ -24,7 +24,7 @@
 
 			while ($row = mysqli_fetch_assoc($res)) {
 				?>
-				<div class="col-md-4 col-sm-12 ">
+				<div class="col-lg-4 col-md-4 col-sm-12 ">
 					<div class="card viral-card m-1 text-center p-1">
 						<h4>
 							<?php echo $row["course"]; ?>
