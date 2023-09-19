@@ -1,3 +1,4 @@
+<?php include 'admin/database/db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,27 +14,21 @@
 
 	<div class="container">
 		<div class="row mt-3">
-			<div class="col viral-card m-1">
 				
-				Bca
-            	<p>Bachlor Of Computer Application....</p>
-				<form action="semesters.php" method="POST">
-				<button class="btn viral-card-2 m-3" type="submit" name="semester">View Semester</button>
-				</form>
-			</div>
-			<div class="col viral-card m-1">
-				B.com
-				<p>Bachlor Of Commerce....</p>
-				<form action="semesters.php" method="POST">
-				<button class="btn viral-card-2 m-3" type="submit" name="semester">view Semester</button>
-				</form>
-			</div>
-			<div class="col viral-card m-1">
-				Bsc
-				<p>Bachlor Of Science....</p>
-				<form action="semesters.php" method="POST">
-				<button class="btn viral-card-2 m-3" type="submit" name="semester">View Semester</button>
-				</form>
+				<?php
+					 $sql="SELECT * FROM courses";      
+					 $res = mysqli_query($conn, $sql);
+					 
+					 while ($row = mysqli_fetch_assoc($res)) {
+						?>
+							<div class="col viral-card m-1">
+							<?php echo $row["course"]; ?>
+							<form action="semesters.php" method="POST">
+							<button class="btn viral-card-2 m-3" type="submit" name="semester" value="<?php echo $row["course_id"]; ?>">View Semester</button>
+					 </form>
+							</div>
+						<?php } 
+				?>
 			</div>
 		</div>
 	</div>
