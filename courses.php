@@ -31,7 +31,7 @@
 						</h4>
 						<form action="semesters.php" method="POST">
 							<button class="btn viral-card-2 m-3" type="submit" name="course_id"
-								value="<?php echo $row["course_id"]; ?>">View Semester</button>
+								value="<?php echo $row["course_id"]; ?>">View</button>
 						</form>
 					</div>
 
