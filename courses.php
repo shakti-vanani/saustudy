@@ -1,4 +1,6 @@
-<?php include 'admin/database/db.php'; ?>
+<?php include 'admin/database/db.php'; 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
