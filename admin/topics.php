@@ -183,7 +183,7 @@ if (isset($_POST['update'])) {
                             <div class="html-editor col-sm-12  pd-20 card-box mb-30">
                                 <h4 class="h4 text-blue">Your Topics Hear</h4>
                                 <p>Simple, beautiful wysiwyg editors</p>
-                                <textarea name="topic-detail" class="textarea_editor form-control border-radius-0"
+                                <textarea name="topic_detail" class="textarea_editor form-control border-radius-0"
                                     placeholder="Enter text ..."></textarea>
                             </div>
                             <div class="col-sm-12  p-2 text-center">
