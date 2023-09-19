@@ -6,17 +6,17 @@
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active "  style="height: 200px;">
+    <div class="carousel-item active "  style="height: 300px;">
       <div class="text-center mt-3">
         <h3>saurashtra university </h3>
       </div>
     </div>
-    <div class="carousel-item  " style="height: 200px;">
+    <div class="carousel-item  " style="height: 300px;">
     <div class="text-center mt-3">
         <h3>saurashtra university </h3>
       </div>
     </div>
-    <div class="carousel-item " style="height: 200px;">
+    <div class="carousel-item " style="height: 300px;">
     <div class="text-center mt-3">
         <h3>saurashtra university </h3>
       </div>
