@@ -1,7 +1,7 @@
 
 # Saustudy
 <div align="center">
-<img src="https://i.pinimg.com/originals/e0/25/81/e0258160555e5e92d2f073d2df46d970.png" align="center" style="width: 100%" />
+<img src="https://i.pinimg.com/originals/25/4e/f4/254ef4dc02c60051cd01254e8b532d7e.png" align="center" style="width: 100%" />
 </div>  
 This Project Are College Education..
 
