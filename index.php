@@ -14,20 +14,26 @@
 	<div class="container">
 		<div class="row mt-3">
 			<div class="col viral-card m-1">
-				<pre>
-					devloper
-				devloper
-				devloper
-				devloper
-				devloper
-				devloper
-				devloper</pre>
+				
+				Bca
+            	<p>Bachlor Of Computer Application....</p>
+				<form action="semesters.php" method="POST">
+				<button class="btn btn-primary m-3" type="submit" name="semester">View Semester</button>
+				</form>
 			</div>
 			<div class="col viral-card m-1">
-				devloper
+				B.com
+				<p>Bachlor Of Commerce....</p>
+				<form action="semesters.php" method="POST">
+				<button class="btn btn-primary m-3" type="submit" name="semester">view Semester</button>
+				</form>
 			</div>
 			<div class="col viral-card m-1">
-				devloper
+				Bsc
+				<p>Bachlor Of Science....</p>
+				<form action="semesters.php" method="POST">
+				<button class="btn btn-primary m-3" type="submit" name="semester">View Semester</button>
+				</form>
 			</div>
 		</div>
 	</div>
