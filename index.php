@@ -10,34 +10,34 @@
 </head>
 
 <body>
-	<?php include 'menu.php'; ?>
 
 	<div class="container-fluid ">
-		<div class="row mt-3">
-			<?php include 'slider.php'; ?>
-		</div>
-		<div class="row mt-3">
-
-			<?php
-			$sql = "SELECT * FROM courses";
-			$res = mysqli_query($conn, $sql);
-
-			while ($row = mysqli_fetch_assoc($res)) {
-				?>
-				<div class="col-lg-4 col-md-4 col-sm-12 ">
-					<div class="card viral-card m-1 text-center p-1">
-						<h4>
-							<?php echo $row["course"]; ?>
-						</h4>
-						<form action="semesters.php" method="POST">
-							<button class="btn viral-card-2 m-3" type="submit" name="course_id"
-								value="<?php echo $row["course_id"]; ?>">View Semester</button>
-						</form>
-					</div>
-
-				</div>
-			<?php }
-			?>
+		
+		<div class="row center mt-3">
+		<div class="col-md-5 col-sm-12 m-2">
+                        <form class="viral-card p-2">
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="Email"><i
+                                    class="bi bi-envelope-at"></i></span>
+                                <input type="email" class="viral-card-1 m-1 p-2" placeholder="Email">
+                              </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="basic-addon1"><i
+                                    class="bi bi-person-circle"></i></span>
+                                <input type="text" class="viral-card-1 m-1 p-2" placeholder="Username">
+                              </div>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text viral-card-2 m-1 p-2" id="basic-addon1"><i
+                                    class="bi bi-shield-lock"></i></span>
+                                <input type="password" class="viral-card-1 m-1 p-2" placeholder="Password">
+                              </div>
+                           
+                           <div class="mb-3 text-center">
+                            <button type="submit" class="btn viral-card-2 ">Submit</button>
+                        </div>
+                        </form>
+                    </div>
 		</div>
 	</div>
 	</div>
