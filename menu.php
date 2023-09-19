@@ -1,4 +1,4 @@
-<nav class="navbar viral-card  m-2 navbar-expand-lg ">
+<nav class="navbar viral-card  m-2 navbar-expand-lg mt-3 ">
 	<div class="container-fluid ">
 	
 		<a class="navbar-brand text-white p-2" href="#"> Saustudy </a>
