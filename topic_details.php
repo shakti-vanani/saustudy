@@ -23,34 +23,25 @@ if(2==$_SESSION['ROLE']){
     <?php include 'menu.php'; ?>
 
     <div class="container">
-    <div class="row mt-3">
-			<?php include 'slider.php'; ?>
-		</div>
+    
         <div class="row mt-3">
 
             <?php
-            $id = $_POST['category_id'];
+            $id = $_POST['topic_id'];
             //echo $id;
-            $sql = "SELECT * FROM topics WHERE category_id='$id'";
+            $sql = "SELECT * FROM topics WHERE topic_id='$id'";
             $res = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_assoc($res)) {
                 ?>
-                <div class="col-md-4 col-sm-12 ">
+                <div class="col-md-12 col-sm-12 ">
                     <div class="card viral-card m-1 text-center p-1">
                         <h4>
                             <?php echo $row["topic"];
                             $subject = $row["topic_id"];
                             ?>
                         </h4>
-                       <form action="topic_details.php" method="POST">
-                            
-                                <button class="btn viral-card-2 m-3" type="submit" name="topic_id"
-                                    value="<?php echo $row["topic_id"]; ?>">View</button>
-                           
-
-                           
-                        </form>  
+                       <div class="col-sm-12 col-md-12 " disabled><?php echo $row['topic_detail']; ?></div>
                     </div>
 
                 </div>
