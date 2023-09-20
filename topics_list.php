@@ -29,9 +29,9 @@ if(2==$_SESSION['ROLE']){
         <div class="row mt-3">
 
             <?php
-            $id = $_POST['semester_id'];
+            $id = $_POST['category_id'];
             //echo $id;
-            $sql = "SELECT * FROM subjects WHERE semester_id='$id'";
+            $sql = "SELECT * FROM topics WHERE category_id='$id'";
             $res = mysqli_query($conn, $sql);
 
             while ($row = mysqli_fetch_assoc($res)) {
@@ -39,24 +39,18 @@ if(2==$_SESSION['ROLE']){
                 <div class="col-md-4 col-sm-12  m-1">
                     <div class="card viral-card m-1 text-center p-1">
                         <h4>
-                            <?php echo $row["subject_name"];
-                            $subject = $row["subject_id"];
+                            <?php echo $row["topic"];
+                            $subject = $row["topic_id"];
                             ?>
                         </h4>
-                        <form action="topics_list.php" method="POST">
-                            <?php
+                       <form action="topic_details.php" method="POST">
+                            
+                                <button class="btn viral-card-2 m-3" type="submit" name="topic_id"
+                                    value="<?php echo $row["topic_id"]; ?>">View</button>
+                           
 
-                            $sql = "SELECT * FROM category WHERE subject_id='$subject'";
-                            $res = mysqli_query($conn, $sql);
-
-                            while ($row = mysqli_fetch_assoc($res)) {
-                                ?>
-                                <button class="btn viral-card-2 m-3" type="submit" name="category_id"
-                                    value="<?php echo $row["category_id"]; ?>"><?php echo $row["category"]; ?></button>
-                            <?php }
-
-                            ?>
-                        </form>
+                           
+                        </form>  
                     </div>
 
                 </div>
