@@ -63,6 +63,7 @@ if (2 == $_SESSION['ROLE']) {
                     </div>
                 <?php } ?>
             </div>
+            
         </div>
 
         <?php include 'footer.php'; ?>
