@@ -88,7 +88,7 @@ if(0==$_SESSION['ROLE']){
 	<?php include 'css.php'; ?>
 </head>
 
-<body>
+<body class="">
 	<?php include 'menu.php'; ?>
 
 	<div class="container ">
@@ -115,6 +115,7 @@ if(0==$_SESSION['ROLE']){
 			<?php }
 			?>
 		</div>
+        
        
 	</div>
     <?php include 'footer.php'; ?>
