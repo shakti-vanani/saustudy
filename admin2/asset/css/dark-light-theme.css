@@ -1,11 +1,11 @@
 body {
   background-image: url(bg/bg-blue.jpg);
-  background-size:cover;
+  background-size: cover;
  
 }
 
 .dark-mode {
-  background-image: url(bg/bg-dark-sky-earth.jpg);
+  background-image: url(bg/bg-dark.jpg);
   background-size:cover;
 }
 

@@ -127,8 +127,8 @@ if(0==$_SESSION['ROLE']){
 </html>
 
 <?php }else{
-            session_destroy();
-            header("Location:index.php");
+            
+            include 'logout.php';
         }
         
         ?>

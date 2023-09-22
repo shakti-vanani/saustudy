@@ -1,4 +1,4 @@
-<nav class="navbar nl container justify-content-cenetr p-2 navbar-expand-lg mt-3 ">
+<nav class="navbar navbar-primary container justify-content-cenetr p-2 navbar-expand-lg mt-3 ">
 	<div class="container viral-card   ">
 	
 		<a class="navbar-brand p-2" href="#"> Saustudy </a>
