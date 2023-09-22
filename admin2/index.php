@@ -1,10 +1,10 @@
 <?php 
-include 'admin/error.php';
+//include 'error.php';
 session_start();
 // Include database connection file
-include_once('admin/database/db.php');
+include_once('controller/database/db.php');
 if (!isset($_SESSION['ID'])) {
-    header("Location:index.php");
+	include 'logout.php';
     exit();
 }
 if(0==$_SESSION['ROLE']){
