@@ -16,12 +16,13 @@ $sql = "CREATE TABLE topics
     topic_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     course_id  INT(2) NOT NULL,
     semester_id INT(2) NOT NULL,
+    subject_id INT(2) NOT NULL,
     category_id INT(2) NOT NULL,
-    matirial_id INT(2) NOT NULL,
     topic VARCHAR(30) NOT NULL,
-    topic_detail VARCHAR(30) NOT NULL,
-    create_at DATE NOT NULL,
-    update_at DATE NOT NULL
+    topic_detail VARCHAR(500) NOT NULL,
+    topic_category VARCHAR(100) NOT NULL,
+    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    update_at TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 )";
 
 if (mysqli_query($conn, $sql)) {
