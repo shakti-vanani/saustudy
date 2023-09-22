@@ -13,13 +13,16 @@
 					
 				</li>
 				<li class="nav-item">
+					<a class="nav-link " href="users.php">Users</a>
+				</li>
+				<li class="nav-item ">
 					<a class="nav-link " href="courses.php">Courses</a>
 				</li>
 				<li class="nav-item ">
-					<a class="nav-link " href="#">Home</a>
+					<a class="nav-link " href="semesters.php">Semesters</a>
 				</li>
 				<li class="nav-item ">
-					<a class="nav-link " href="#">Home</a>
+					<a class="nav-link " href="subjects.php">Subjects</a>
 				</li>
 				<li class="nav-item dark  ">
 				<h4 id=" " class="m-1 "><i class="sun-moon bi bi-sun"></i></h4>
