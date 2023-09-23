@@ -32,16 +32,16 @@ if (0 == $_SESSION['ROLE']) {
                         <form class="mt-3" action="" method="POST">
 
                             <div class="input-group mb-3">
-                                <span class="input-group-text  viral-card-2 " id="course"><h5><i
+                                <span class="input-group-text  viral-card-2 col-2" id="course"><h5><i
                                         class="bi bi-journal"></i>Course</h5></span>
-                                <input type="text" name="course" class="viral-card-1 m-1 p-2 col-5" placeholder="Add New Course">
+                                <input type="text" name="course" class="viral-card-1  p-2 col-8" placeholder="Add New Course">
                            
-                                <button type="submit" name="submit" class="btn viral-card-2 col-2">submit</button>
+                                <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                             </div>
                         </form>
                     </div>
 
-               
+            </div> 
                 <?php /*
             $data = $obj->view();
             while ($row = mysqli_fetch_assoc($data)){
@@ -62,6 +62,22 @@ if (0 == $_SESSION['ROLE']) {
                </div>
            <?php  } */
                 ?>
+            
+            <div class="row  p-2 mt-1">
+                <div class="row viral-card mt-2 p-1">
+                <div class="col-1">#</div>
+                <div class="col">Course Name</div>
+                <div class="col">Action</div>
+                </div>
+               <?php  $data = $obj->view();
+                            while ($row = mysqli_fetch_assoc($data)) {
+                                ?>
+                <div class="row viral-card mt-2 p-1">
+                <div class="col-1"> <?php echo $row["course_id"]; ?></div>
+                <div class="col"> <?php echo $row["course"]; ?></div>
+                <div class="col"></div>
+                </div>
+            <?php } ?>
             </div>
 
 
