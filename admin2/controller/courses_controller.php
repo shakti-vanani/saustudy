@@ -1,5 +1,6 @@
 <?php
 include 'error.php';
+error_reporting(0);
 class courses
 {
     private $conn = '';
