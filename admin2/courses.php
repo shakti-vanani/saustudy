@@ -84,7 +84,7 @@ if (0 == $_SESSION['ROLE']) {
                         <form action="" method="POST">
                                             <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
                                             <button class="btn viral-card-edit" type="submit" name=""
-                                                onclick="return confirm('are you sure to Edit')"><i class="bi bi-pencil-square"></i></button>
+                                                onclick="return confirm('are you sure to edit')"><i class="bi bi-pencil-square"></i></button>
         
                                             <button class="btn viral-card-delete" type="submit" name="delete"
                                                 onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
