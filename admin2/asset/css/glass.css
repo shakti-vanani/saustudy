@@ -18,7 +18,9 @@ input:focus {
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 29, 240, 0.3);
 }
-
+.nav-link{
+    color: white;
+}
 .nav-item:hover {
 
     background: rgba(255, 255, 255, 0.2);
