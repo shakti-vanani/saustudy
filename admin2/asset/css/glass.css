@@ -57,7 +57,24 @@ input:focus {
     -webkit-backdrop-filter: blur(5.9px);
     border: 1px solid rgba(255, 52, 201, 0.67);
 }
+.viral-card-edit {
 
+    background: rgba(3, 246, 250, 0.875);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(138, 123, 255, 0.3);
+}
+.viral-card-delete {
+
+    background: rgba(255, 6, 6, 0.875);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.9px);
+    -webkit-backdrop-filter: blur(5.9px);
+    border: 1px solid rgba(138, 123, 255, 0.3);
+}
 .viral-card-2 {
 
     background: rgba(176, 255, 6, 0.875);
