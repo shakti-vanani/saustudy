@@ -1,219 +1,114 @@
 <?php
-include 'error.php';
-class courses
-{
-    private $conn = '';
-    function __construct()
-    {
-        include 'database/db.php';
-        //$conn= new mysqli('localhost','root','','saustudy');
-        $this->db = $conn;
+//include 'error.php';
 
-    }
-    function insert($course)
-    {
-        $sql = "INSERT INTO `courses`(`course`) VALUES ('$course')";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function update($id, $course)
-    {
-        $sql = "UPDATE `courses` SET `course`='$course' WHERE `course_id`='$id'";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function delete($id)
-    {
-        $sql = "DELETE FROM `courses` WHERE `course_id`='$id'";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function view()
-    {
-            
-        $sql = "SELECT * FROM `courses`";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
+session_start();
+// Include database connection file
+include_once('controller/database/db.php');
+if (!isset($_SESSION['ID'])) {
+    include 'logout.php';
+    exit();
 }
-$obj = new courses();
-if (isset($_POST['submit'])) {
-    $course = $_POST['course'];
+if (0 == $_SESSION['ROLE']) {
+    include 'controller/courses_controller.php';
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-    $res = $obj->insert($course);
-    if ($res) {
-        header("location:courses.php");
-    } else {
-        echo "alert('data not inserted successfully')";
-    }
-}
-if (isset($_POST['update'])) {
-    $id = $_POST['course_id'];
-    $course = $_POST['course'];
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saustudy</title>
+        <?php include 'css.php'; ?>
+    </head>
 
-    $res = $obj->update($id, $course);
-    if ($res) {
-        header("location:courses.php");
-    } else {
-        echo "alert('data not updated successfully')";
-    }
-} elseif (isset($_POST['delete'])) {
-    $id = $_POST['id'];
-    // $id=$_POST['course_id'];
-    $res = $obj->delete($id);
-    if ($res) {
-        header("location:courses.php");
-    } else {
-        echo "not deleted";
-    }
-}
+    <body class="">
+        <?php include 'menu.php'; ?>
 
-//$obj1=new courses();
-?>
-<!DOCTYPE html>
-<html lang="en">
+        <div class="container  ">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin|Login</title>
-    <?php include 'css.php'; ?>
-</head>
+            <div class="row p-2 mt-1">
 
-<body>
-    <?php include 'menu.php'; ?>
+                <div class=" viral-card text-center">
+                    <form class="mt-3" action="" method="POST">
 
-    <div class="main-container">
-        <div class="xs-pd-20-10 pd-ltr-20">
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="title">
-                            <h4>Courses</h4>
-                        </div>
-                        <nav aria-label="breadcrumb" role="navigation">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    Courses
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
-                <div class="col-md-12 col-sm-12 card-box">
-                    <form method="POST" action="courses.php">
-                        <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Course Name</h4>
-                                </div>
-                            </label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" name="course" placeholder="Add New Courses">
-                            </div>
-                            <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="submit" class="btn btn-success">submit</button>
-                            </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text  viral-card-2 col-2" id="course">
+                                <h5><i class="bi bi-journal"></i>Course</h5>
+                            </span>
+                            <input type="text" name="course" class="viral-card-1  p-2 col-8" placeholder="Add New Course">
+
+                            <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                         </div>
                     </form>
                 </div>
+
             </div>
+            <?php /*
+          $data = $obj->view();
+          while ($row = mysqli_fetch_assoc($data)){
+             ?>
+             <div class="col-lg-4 col-md-4 col-sm-12 ">
+                 <div class="card viral-card m-1 text-center p-1">
+                     <h4>
+                         <?php echo $row["username"]; ?>
+                     </h4>
+                     <div class="">
+                         <p><?php echo $row["fname"]; ?></p>
+                         <p><?php echo $row["lname"]; ?></p>
+                         <p><?php echo $row["email"]; ?></p>
+                     </div>
+                     
+                 </div>
 
-            <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
-                <div class="col-md-12 col-sm-12   card-box">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Courses</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $data = $obj->view();
-                            while ($row = mysqli_fetch_assoc($data)) {
-                                ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $row["course_id"]; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $row["course"]; ?>
-                                    </td>
-                                    <td>
-                                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#course-update"
-                                            type="button">
-                                            Update
-                                        </a>
-                                        <div class="modal fade" id="course-update" tabindex="-1" role="dialog"
-                                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered">
-                                                <div class="modal-content">
-                                                    <form action="" method="POST">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="myLargeModalLabel">
-                                                                Update Courses
-                                                            </h4>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">
-                                                                ×
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="form-group row">
-                                                                <input type="number"
-                                                                    value="<?php echo $row["course_id"]; ?>"
-                                                                    name="course_id" hidden>
-                                                                <div class="col-sm-12 col-md-4">
-                                                                    <div class="title">
-                                                                        <h4>Course Name</h4>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-12 col-md-8">
-                                                                    <input class="form-control p-2" type="text"
-                                                                        value="<?php echo $row["course"]; ?>" name="course">
-                                                                </div>
+             </div>
+         <?php  } */
+            ?>
+            <div class="row mt-1">
+                <?php
+                $data = $obj->view();
+                while ($row = mysqli_fetch_assoc($data)) {
+                    ?>
+                    <div class="col-lg-4 col-md-4 col-sm-12 ">
+                        <div class="card viral-card m-1 text-center p-1">
+                            <h4>
+                                <?php echo $row["username"]; ?>
+                            </h4>
+                            <div class="">
+                                <p>
+                                    <?php echo $row["course_id"]; ?>
+                                </p>
+                                <p>
+                                    <?php echo $row["course"]; ?>
+                                </p>
+                                <form action="" method="POST">
+                                    <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
+                                    <button class="btn viral-card-edit" type="submit" name="update"
+                                        onclick="return confirm('are you sure to edit')"><i
+                                            class="bi bi-pencil-square"></i></button>
 
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">
-                                                                Close
-                                                            </button>
-                                                            <button class="btn btn-primary m-3" type="submit" name="update">
-                                                                Update </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <form action="" method="POST">
-                                            <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
-                                            <button class="btn btn-danger m-3" type="submit" name="delete"
-                                                onclick="return confirm('are you sure to delete')">delete</button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
+                                    <button class="btn viral-card-delete" type="submit" name="delete"
+                                        onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                <?php }
+                ?>
             </div>
-
-            <!--Footer Start-->
-            <?php include 'footer.php'; ?>
-             <!--Footer End-->
         </div>
-    </div>
+        <?php include 'footer.php'; ?>
 
-    <?php include 'js.php'; ?>
-</body>
 
-</html>
+        <?php include 'js.php'; ?>
+    </body>
+
+    </html>
+
+<?php } else {
+
+    include 'logout.php';
+}
+
+?>

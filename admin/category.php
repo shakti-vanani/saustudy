@@ -1,256 +1,46 @@
 <?php
-include 'error.php';
-class category
-{
-    private $conn = '';
-    function __construct()
-    {
-        include 'database/db.php';
-        //$conn= new mysqli('localhost','root','','saustudy');
-        $this->db = $conn;
-
-    }
-    function insert($course_id,$semester_id,$subject_id,$category)
-    {
-        echo $course_id; echo $semester_id;
-        $sql = "INSERT INTO `category`(`course_id`, `semester_id`,`subject_id`,`category`) VALUES ('$course_id','$semester_id','$subject_id','$category')";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function edit($id,$course_id,$semester_id,$subject_id,$category)
-    {
-        $sql="UPDATE `category` SET `course_id`='$course_id',`semester_id`='$semester_id',`subject_id`='$subject_id',`category`='$category' WHERE `category_id`='$id'";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function delete($id)
-    {
-        $sql = "DELETE FROM `category` WHERE `category_id`='$id'";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function view()
-    {
-        $sql = "SELECT category_id,course,semester,subject_name,category FROM category INNER JOIN courses USING(course_id) INNER JOIN semesters USING(semester_id) INNER JOIN subjects USING(subject_id)";
-        $res = mysqli_query($this->db, $sql);
-        return $res;
-    }
-    function courseview()
-    {
-    $sql="SELECT * FROM `courses`"; 
-    $res=mysqli_query($this->db,$sql);
-    return $res;    
-    }
+//include 'error.php';
+session_start();
+// Include database connection file
+include_once('controller/database/db.php');
+if (!isset($_SESSION['ID'])) {
+    include 'logout.php';
+    exit();
 }
-$obj = new category();
-if (isset($_POST['submit'])) {    
-    $course_id=$_POST['course_id'];
-    //echo $course_id;
-    $semester_id=$_POST['semester_id'];
-    $subject_id=$_POST['subject_id'];
-    $category=$_POST['category'];
-    $res = $obj->insert($course_id,$semester_id,$subject_id,$category);
-    if ($res) {
-        //$course_id
-       header("location:category.php");
-    } else {
-        echo "alert('data not inserted successfully')";
-    }
-}
-if (isset($_POST['update'])) {
-    $id=$_POST['category_id'];
-    $course_id=$_POST['course_id'];
-    $semester_id = $_POST['semester_id'];
-    $subject_id = $_POST['subject_id'];
-    $category=$_POST['category'];
-    $res = $obj->edit($id,$course_id,$semester_id,$subject_id,$category);
-    if ($res) {
-        header("location:category.php");
-    } else {
-        echo "alert('data not updated successfully')";
-    }
- } 
- elseif (isset($_POST['delete'])) {
-    $id=$_POST['id'];
-    $res = $obj->delete($id);
-    if ($res) {
-        header("location:category.php");
-    } else {
-        echo "not deleted";
-    }
-}
-
-//$obj1=new category();
-?>
+if (0 == $_SESSION['ROLE']) {
+    include 'controller/category_controller.php';
+    ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin|Login</title>
-    <?php 
-    include 'css.php';
-     ?>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-</head>
-<body>
-    <?php include 'menu.php'; ?>
-
-    <div class="main-container">
-        <div class="xs-pd-20-10 pd-ltr-20">
-            <div class="page-header">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <div class="title">
-                            <h4>Semesters</h4>
-                        </div>
-                        <nav aria-label="breadcrumb" role="navigation">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    category
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="row xs-pd-10-10 pd-ltr-20 mb-10 ">
-                <div class="col-md-12 col-sm-12 card-box">
-                    <form action="" method="POST">
-                        <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Course Select</h4>
-                                </div>
-                            </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                <select class="custom-select col-12" name="course_id" id="courseid" >
-                                    <option selected="">Choose course...</option>
-                                    <?php
-                                     $data = $obj->courseview();                        
-                                       while( $row = mysqli_fetch_assoc($data))
-                                       {
-                                    ?>
-                                    <option value="<?php echo $row['course_id']; ?>" ><?php echo $row["course"]; ?>
-                                    </option>
-                                    <?php   } ?>
-                                     
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Semester Select</h4>
-                                </div>
-                            </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                
-                                <select class="custom-select col-12" name="semester_id" id="semesterid">
-                                                               
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row pd-10">
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Subject Select</h4>
-                                </div>
-                            </label></label>
-                            <div class="col-sm-12 col-md-8">
-                                
-                                <select class="custom-select col-12" name="subject_id" id="subjectid">
-                                                               
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row pd-10">
-
-                            <label class="col-sm-12 col-md-2 col-form-label">
-                                <div class="title">
-                                    <h4>Category Name</h4>
-                                </div>
-                            </label>
-                            <div class="col-sm-12 col-md-8">
-                                <input class="form-control" type="text" placeholder="Add New Category" name="category">
-                            </div>
-                            <div class="col-sm-12 col-md-2">
-                                <button type="submit" name="submit" class="btn btn-success">submit</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row xs-pd-20-10 pd-ltr-20 mb-20">
-                <div class="col-md-12 col-sm-12   card-box">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Courses</th>
-                                <th scope="col">Semesters</th>
-                                <th scope="col">subject</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $data = $obj->view();
-                            while ($row = mysqli_fetch_assoc($data)) {
-                                ?>
-                            <tr>
-                                <th scope="row"><?php echo $row['category_id']; ?></th>
-                                <td><?php echo $row['course']; ?></td>
-                                <td><?php echo $row['semester']; ?></td>
-                                <td><?php echo $row['subject_name']; ?></td>
-                                <td><?php echo $row['category']; ?></td>
-                                <td>
-                                    <a href="" class="text-primary">
-                                        <span class="micon fa fa-edit"> Edit</span>
-                                    </a> | <a href="" class="text-danger"><span class="micon ion-trash-a">
-                                            Delete</span></a>
-                                </td>
-                            </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            
-            <!--Footer Start-->
-            <?php include 'footer.php'; ?>
-             <!--Footer End-->
-        </div>
-    
-    </div>
+    <title>Saustudy</title>
+    <?php include 'css.php'; ?>
     <script type="text/javascript">
-        $(document).ready(function(){
-            // for select a semesters
-            $('#courseid').on('change',function(){
-                var course_id=$(this).val();
-                $.ajax({
-                    url :"load.php",
-                    type :"POST",
-                    data: {course_id:course_id},
-                    cache: false,
-                    success:function(data){
-                        $("#semesterid").html(data);
-                    }
-                });
+    $(document).ready(function() {
+        $('#courseid').on('change', function() {
+            var cid = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    cid: cid
+                },
+                cache: false,
+                success: function(data) {
+                    $("#semesterid").html(data);
+                }
             });
-             // for select a subjects
-            $("#semesterid").on("change",function(){
-                var semester_id=$(this).val();
+
+        });
+          // for select a subjects
+          $("#semesterid").on("change",function(){
+                var semid=$(this).val();
                 $.ajax({
-                    url :"load.php",
+                    url :"get.php",
                     type :"POST",
-                    data: {semester_id:semester_id},
+                    data: {semid:semid},
                     cache: false,
                     success:function(data){
                         $("#subjectid").html(data);
@@ -258,11 +48,119 @@ if (isset($_POST['update'])) {
                 });
 
             });
+           
+    });
+    </script>
+</head>
 
-        });
+<body class="">
+    <?php include 'menu.php'; ?>
 
-        </script>
-<?php include 'js.php'; ?>
+    <div class="container">
+
+        <div class="row p-2 mt-1">
+
+            <div class=" viral-card text-center">
+                <form class="mt-3" action="" method="POST">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>course select</h5>
+                        </span>
+                        <?php
+                        $data = $obj->courseview();
+                        ?>
+                        <select class="viral-card-1 p-2 col-10" name="course_id" id="courseid">
+                            <option selected="">Choose course...</option>
+                            <?php 
+                            while($row=mysqli_fetch_assoc($data))
+                            { ?>
+                            <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>semester</h5>
+                        </span>
+                        <select class="viral-card-1 p-2 col-10 " name="semester_id" id="semesterid">
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>subject</h5>
+                        </span>
+                        <select class="viral-card-1 p-2 col-10 " name="subject_id" id="subjectid">
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2" id="subject">
+                            <h5><i class="bi bi-journal"></i>category</h5>
+                        </span>
+                        <input type="text" name="category" class="viral-card-1  p-2 col-8" placeholder="Add New category">
+
+                        <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        
+      
+        <div class="row mt-1">
+            <div class="row viral-card m-1">
+                    <div class="col">#</div>
+                    <div class="col">Courses</div>
+                    <div class="col">Semesters</div>
+                    <div class="col">Subject</div>
+                    <div class="col">Category</div>
+                    <div class="col">Action</div>
+            </div>
+            <?php
+                $data = $obj->view();
+                while ($row = mysqli_fetch_assoc($data)) {
+                    ?>
+            <div class="row viral-card m-1">
+                <div class="col">
+                <?php echo $row["category_id"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["course"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["semester"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["subject_name"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["category"]; ?>
+                </div>
+                <div class="col">
+                <form action="" method="POST">
+                            <input type="number" value="<?php echo $row["category_id"]; ?>" name="id" hidden>
+                            <button class="btn viral-card-edit" type="submit" name=""
+                                onclick="return confirm('are you sure to edit')"><i
+                                    class="bi bi-pencil-square"></i></button>
+
+                            <button class="btn viral-card-delete" type="submit" name="delete"
+                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                        </form>
+                </div>
+            </div>
+           <?php } ?>
+        </div>  
+    </div>
+
+
+
+    <?php include 'js.php'; ?>
 </body>
 
 </html>
+
+<?php } else {
+
+    include 'logout.php';
+}
+
+?>
