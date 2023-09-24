@@ -168,7 +168,45 @@ if (0 == $_SESSION['ROLE']) {
                 ?>
         </div>
 
+        <div class="row mt-1">
+            <div class="row viral-card m-1">
+                    <div class="col">#</div>
+                    <div class="col">Courses</div>
+                    <div class="col">Semesters</div>
+                    <div class="col">Subject</div>
+                    <div class="col">Action</div>
+            </div>
+            <?php
+                $data = $obj->view();
+                while ($row = mysqli_fetch_assoc($data)) {
+                    ?>
+            <div class="row viral-card m-1">
+                <div class="col">
+                <?php echo $row["subject_id"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["course"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["semester"]; ?>
+                </div>
+                <div class="col">
+                <?php echo $row["subject_name"]; ?>
+                </div>
+                <div class="col">
+                <form action="" method="POST">
+                            <input type="number" value="<?php echo $row["subject_id"]; ?>" name="id" hidden>
+                            <button class="btn viral-card-edit" type="submit" name="update"
+                                onclick="return confirm('are you sure to edit')"><i
+                                    class="bi bi-pencil-square"></i></button>
 
+                            <button class="btn viral-card-delete" type="submit" name="delete"
+                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                        </form>
+                </div>
+            </div>
+           <?php } ?>
+        </div>  
     </div>
 
 
