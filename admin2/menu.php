@@ -24,6 +24,12 @@
 				<li class="nav-item ">
 					<a class="nav-link " href="subjects.php">Subjects</a>
 				</li>
+				<li class="nav-item ">
+					<a class="nav-link " href="category.php">category</a>
+				</li>
+				<li class="nav-item ">
+					<a class="nav-link " href="topics.php">topics</a>
+				</li>
 				<li class="nav-item dark  ">
 				<h4 id=" " class="m-1 "><i class="sun-moon bi bi-sun"></i></h4>
 				</li>

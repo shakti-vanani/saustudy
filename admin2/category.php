@@ -1,6 +1,5 @@
 <?php
 //include 'error.php';
-
 session_start();
 // Include database connection file
 include_once('controller/database/db.php');
@@ -9,51 +8,95 @@ if (!isset($_SESSION['ID'])) {
     exit();
 }
 if (0 == $_SESSION['ROLE']) {
-    include 'controller/semesters_controller.php';
+    include 'controller/category_controller.php';
     ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saustudy</title>
     <?php include 'css.php'; ?>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#courseid').on('change', function() {
+            var cid = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    cid: cid
+                },
+                cache: false,
+                success: function(data) {
+                    $("#semesterid").html(data);
+                }
+            });
+
+        });
+          // for select a subjects
+          $("#semesterid").on("change",function(){
+                var semid=$(this).val();
+                $.ajax({
+                    url :"get.php",
+                    type :"POST",
+                    data: {semid:semid},
+                    cache: false,
+                    success:function(data){
+                        $("#subjectid").html(data);
+                    }
+                });
+
+            });
+           
+    });
+    </script>
 </head>
 
 <body class="">
     <?php include 'menu.php'; ?>
 
-    <div class="container  ">
+    <div class="container">
 
         <div class="row p-2 mt-1">
 
             <div class=" viral-card text-center">
                 <form class="mt-3" action="" method="POST">
                     <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2" id="course">
+                        <span class="input-group-text  viral-card-2 col-2">
                             <h5><i class="bi bi-journal"></i>course select</h5>
                         </span>
                         <?php
                         $data = $obj->courseview();
                         ?>
-                        <select class="viral-card-1 p-2 col-10" name="course_id">
-                            <option selected="">select course</option>
+                        <select class="viral-card-1 p-2 col-10" name="course_id" id="courseid">
+                            <option selected="">Choose course...</option>
                             <?php 
                             while($row=mysqli_fetch_assoc($data))
                             { ?>
                             <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
                             <?php } ?>
                         </select>
-                        
                     </div>
                     <div class="input-group mb-3">
-
-                        <span class="input-group-text  viral-card-2 col-2" id="semetser">
+                        <span class="input-group-text  viral-card-2 col-2">
                             <h5><i class="bi bi-journal"></i>semester</h5>
                         </span>
-                        <input type="text" name="semester" class="viral-card-1  p-2 col-8"
-                            placeholder="Add New semester">
+                        <select class="viral-card-1 p-2 col-10 " name="semester_id" id="semesterid">
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>subject</h5>
+                        </span>
+                        <select class="viral-card-1 p-2 col-10 " name="subject_id" id="subjectid">
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2" id="subject">
+                            <h5><i class="bi bi-journal"></i>category</h5>
+                        </span>
+                        <input type="text" name="category" class="viral-card-1  p-2 col-8" placeholder="Add New category">
 
                         <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                     </div>
@@ -93,17 +136,23 @@ if (0 == $_SESSION['ROLE']) {
                     </h4>
                     <div class="">
                         <p>
-                            <?php echo $row["semester_id"]; ?>
+                            <?php echo $row["category_id"]; ?>
                         </p>
                         <p>
                             <?php echo $row["course"]; ?>
-                        </p>                       
+                        </p>
                         <p>
                             <?php echo $row["semester"]; ?>
                         </p>
+                        <p>
+                            <?php echo $row["subject_name"]; ?>
+                        </p>
+                        <p>
+                            <?php echo $row["category"]; ?>
+                        </p>
                         <form action="" method="POST">
-                            <input type="number" value="<?php echo $row["semester_id"]; ?>" name="id" hidden>
-                            <button class="btn viral-card-edit" type="submit" name="update"
+                            <input type="number" value="<?php echo $row["category_id"]; ?>" name="id" hidden>
+                            <button class="btn viral-card-edit" type="submit" name=""
                                 onclick="return confirm('are you sure to edit')"><i
                                     class="bi bi-pencil-square"></i></button>
 
@@ -121,7 +170,7 @@ if (0 == $_SESSION['ROLE']) {
 
 
     </div>
-    <?php include 'footer.php'; ?>
+
 
 
     <?php include 'js.php'; ?>

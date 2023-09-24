@@ -82,7 +82,7 @@ if (0 == $_SESSION['ROLE']) {
                                 </p>
                                 <form action="" method="POST">
                                     <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
-                                    <button class="btn viral-card-edit" type="submit" name=""
+                                    <button class="btn viral-card-edit" type="submit" name="update"
                                         onclick="return confirm('are you sure to edit')"><i
                                             class="bi bi-pencil-square"></i></button>
 
@@ -97,8 +97,6 @@ if (0 == $_SESSION['ROLE']) {
                 <?php }
                 ?>
             </div>
-
-
         </div>
         <?php include 'footer.php'; ?>
 

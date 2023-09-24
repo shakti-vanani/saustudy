@@ -31,7 +31,6 @@ class courses
     }
     function view()
     {
-            
         $sql = "SELECT * FROM `courses`";
         $res = mysqli_query($this->db, $sql);
         return $res;
@@ -49,7 +48,7 @@ if (isset($_POST['submit'])) {
     }
 }
 if (isset($_POST['update'])) {
-    $id = $_POST['course_id'];
+    $id = $_POST['id'];
     $course = $_POST['course'];
 
     $res = $obj->update($id, $course);
