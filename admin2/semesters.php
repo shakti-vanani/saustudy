@@ -81,43 +81,7 @@ if (0 == $_SESSION['ROLE']) {
         </div>
         <?php  } */
             ?>
-        <div class="row mt-1">
-            <?php
-                $data = $obj->view();
-                while ($row = mysqli_fetch_assoc($data)) {
-                    ?>
-            <div class="col-lg-4 col-md-4 col-sm-12 ">
-                <div class="card viral-card m-1 text-center p-1">
-                    <h4>
-                        <?php echo $row["username"]; ?>
-                    </h4>
-                    <div class="">
-                        <p>
-                            <?php echo $row["semester_id"]; ?>
-                        </p>
-                        <p>
-                            <?php echo $row["course"]; ?>
-                        </p>                       
-                        <p>
-                            <?php echo $row["semester"]; ?>
-                        </p>
-                        <form action="" method="POST">
-                            <input type="number" value="<?php echo $row["semester_id"]; ?>" name="id" hidden>
-                            <button class="btn viral-card-edit" type="submit" name="update"
-                                onclick="return confirm('are you sure to edit')"><i
-                                    class="bi bi-pencil-square"></i></button>
-
-                            <button class="btn viral-card-delete" type="submit" name="delete"
-                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-            <?php }
-                ?>
-        </div>
+       
         <div class="row mt-1">
             <div class="row viral-card m-1">
                     <div class="col">#</div>
