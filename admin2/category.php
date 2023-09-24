@@ -104,26 +104,7 @@ if (0 == $_SESSION['ROLE']) {
             </div>
 
         </div>
-        <?php /*
-          $data = $obj->view();
-          while ($row = mysqli_fetch_assoc($data)){
-             ?>
-        <div class="col-lg-4 col-md-4 col-sm-12 ">
-            <div class="card viral-card m-1 text-center p-1">
-                <h4>
-                    <?php echo $row["username"]; ?>
-                </h4>
-                <div class="">
-                    <p><?php echo $row["fname"]; ?></p>
-                    <p><?php echo $row["lname"]; ?></p>
-                    <p><?php echo $row["email"]; ?></p>
-                </div>
-
-            </div>
-
-        </div>
-        <?php  } */
-            ?>
+        
       
         <div class="row mt-1">
             <div class="row viral-card m-1">
