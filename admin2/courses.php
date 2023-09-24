@@ -44,54 +44,58 @@ if (0 == $_SESSION['ROLE']) {
 
             </div>
             <?php /*
-           $data = $obj->view();
-           while ($row = mysqli_fetch_assoc($data)){
-              ?>
-              <div class="col-lg-4 col-md-4 col-sm-12 ">
-                  <div class="card viral-card m-1 text-center p-1">
-                      <h4>
-                          <?php echo $row["username"]; ?>
-                      </h4>
-                      <div class="">
-                          <p><?php echo $row["fname"]; ?></p>
-                          <p><?php echo $row["lname"]; ?></p>
-                          <p><?php echo $row["email"]; ?></p>
-                      </div>
-                      
-                  </div>
+          $data = $obj->view();
+          while ($row = mysqli_fetch_assoc($data)){
+             ?>
+             <div class="col-lg-4 col-md-4 col-sm-12 ">
+                 <div class="card viral-card m-1 text-center p-1">
+                     <h4>
+                         <?php echo $row["username"]; ?>
+                     </h4>
+                     <div class="">
+                         <p><?php echo $row["fname"]; ?></p>
+                         <p><?php echo $row["lname"]; ?></p>
+                         <p><?php echo $row["email"]; ?></p>
+                     </div>
+                     
+                 </div>
 
-              </div>
-          <?php  } */
+             </div>
+         <?php  } */
             ?>
-
-            <div class="row  p-2 mt-1">
-                <div class="row viral-card mt-2 p-1">
-                    <div class="col-1">#</div>
-                    <div class="col">Course Name</div>
-                    <div class="col">Action</div>
-                </div>
-                <?php $data = $obj->view();
+            <div class="row mt-1">
+                <?php
+                $data = $obj->view();
                 while ($row = mysqli_fetch_assoc($data)) {
                     ?>
-                    <div class="row viral-card mt-2 p-1">
-                        <div class="col-1">
-                            <?php echo $row["course_id"]; ?>
+                    <div class="col-lg-4 col-md-4 col-sm-12 ">
+                        <div class="card viral-card m-1 text-center p-1">
+                            <h4>
+                                <?php echo $row["username"]; ?>
+                            </h4>
+                            <div class="">
+                                <p>
+                                    <?php echo $row["course_id"]; ?>
+                                </p>
+                                <p>
+                                    <?php echo $row["course"]; ?>
+                                </p>
+                                <form action="" method="POST">
+                                    <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
+                                    <button class="btn viral-card-edit" type="submit" name=""
+                                        onclick="return confirm('are you sure to edit')"><i
+                                            class="bi bi-pencil-square"></i></button>
+
+                                    <button class="btn viral-card-delete" type="submit" name="delete"
+                                        onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                                </form>
+                            </div>
+
                         </div>
-                        <div class="col">
-                            <?php echo $row["course"]; ?>
-                        </div>
-                        <div class="col">
-                        <form action="" method="POST">
-                                            <input type="number" value="<?php echo $row["course_id"]; ?>" name="id" hidden>
-                                            <button class="btn viral-card-edit" type="submit" name=""
-                                                onclick="return confirm('are you sure to edit')"><i class="bi bi-pencil-square"></i></button>
-        
-                                            <button class="btn viral-card-delete" type="submit" name="delete"
-                                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
-                            </form>
-                        </div>
+
                     </div>
-                <?php } ?>
+                <?php }
+                ?>
             </div>
 
 
