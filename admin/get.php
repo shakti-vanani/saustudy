@@ -20,16 +20,16 @@ while($row=mysqli_fetch_assoc($res))
 echo'<option value="'.$row['subject_id'].'">'.$row['subject_name'].'</option>';
 }
 } 
-elseif(isset($_POST['subject_id']))
+elseif(isset($_POST['subid']))
 {
 //$subject_id=$_POST['subject_id'];
-$res=mysqli_query($conn,"SELECT * FROM category WHERE `subject_id`=".$_POST['subject_id']."");
+$res=mysqli_query($conn,"SELECT * FROM category WHERE `subject_id`=".$_POST['subid']."");
 echo'<option value="">select category</option>';
 while($row=mysqli_fetch_assoc($res))
 {
 echo'<option value="'.$row['category_id'].'">'.$row['category'].'</option>';
 }
-}/*
+}
 elseif(isset($_POST['category_id']))
 {
 //$category_id=$_POST['category_id'];
@@ -42,5 +42,5 @@ while($row=mysqli_fetch_assoc($res))
 
 echo'<option value="'.$row['material_id'].'">'.$row['material'].'</option>';
 } 
-}*/
+}
 ?>

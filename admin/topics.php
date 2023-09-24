@@ -17,7 +17,54 @@ if (0 == $_SESSION['ROLE']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saustudy</title>
     <?php include 'css.php'; ?>
-   
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#courseid').on('change', function() {
+            var cid = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    cid: cid
+                },
+                cache: false,
+                success: function(data) {
+                    $("#semesterid").html(data);
+                }
+            });
+
+        });
+          // for select a subjects
+          $("#semesterid").on("change",function(){
+                var semid=$(this).val();
+                $.ajax({
+                    url :"get.php",
+                    type :"POST",
+                    data: {semid:semid},
+                    cache: false,
+                    success:function(data){
+                        $("#subjectid").html(data);
+                    }
+                });
+
+            });
+             // for select a category
+          $("#subjectid").on("change",function(){
+                var subid=$(this).val();
+                $.ajax({
+                    url :"get.php",
+                    type :"POST",
+                    data: {subid:subid},
+                    cache: false,
+                    success:function(data){
+                        $("#categoryid").html(data);
+                    }
+                });
+
+            });
+           
+    });
+    </script>
 </head>
 
 <body class="">
@@ -68,9 +115,9 @@ if (0 == $_SESSION['ROLE']) {
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text  viral-card-2 col-2" id="subject">
-                            <h5><i class="bi bi-journal"></i>Topic</h5>
+                            <h5><i class="bi bi-journal"></i>topics</h5>
                         </span>
-                        <input type="text" name="topic" class="viral-card-1  p-2 col-8" placeholder="Add New category">
+                        <input type="text" name="topic" class="viral-card-1  p-2 col-8" placeholder="Add New topic">
 
                         <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                     </div>
@@ -87,6 +134,7 @@ if (0 == $_SESSION['ROLE']) {
                     <div class="col">Semesters</div>
                     <div class="col">Subject</div>
                     <div class="col">Category</div>
+                    <div class="col">topic</div>
                     <div class="col">Action</div>
             </div>
             <?php
@@ -95,7 +143,7 @@ if (0 == $_SESSION['ROLE']) {
                     ?>
             <div class="row viral-card m-1">
                 <div class="col">
-                <?php echo $row["category_id"]; ?>
+                <?php echo $row["topic_id"]; ?>
                 </div>
                 <div class="col">
                 <?php echo $row["course"]; ?>
@@ -110,8 +158,11 @@ if (0 == $_SESSION['ROLE']) {
                 <?php echo $row["category"]; ?>
                 </div>
                 <div class="col">
+                <?php echo $row["topic"]; ?>
+                </div>
+                <div class="col">
                 <form action="" method="POST">
-                            <input type="number" value="<?php echo $row["category_id"]; ?>" name="id" hidden>
+                            <input type="number" value="<?php echo $row["topic_id"]; ?>" name="id" hidden>
                             <button class="btn viral-card-edit" type="submit" name=""
                                 onclick="return confirm('are you sure to edit')"><i
                                     class="bi bi-pencil-square"></i></button>
@@ -126,48 +177,7 @@ if (0 == $_SESSION['ROLE']) {
     </div>
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#courseid").on("change", function () {
-                var course_id = $(this).val();
-                $.ajax({
-                    url: "load.php",
-                    type: "POST",
-                    data: { course_id: course_id },
-                    cache: false,
-                    success: function (data) {
-                        $("#semesterid").html(data);
-                        //$('#categoryid').html('<option value="">select category</option>');
-                    }
-                });
-            });
-            //for select category
-            $("#semesterid").on("change", function () {
-                var semester_id = $(this).val();
-                $.ajax({
-                    url: "load.php",
-                    type: "POST",
-                    data: { semester_id: semester_id },
-                    cache: false,
-                    success: function (data) {
-                        $("#subjectid").html(data);
-                    }
-                });
-            });
-            $("#subjectid").on("change", function () {
-                var subject_id = $(this).val();
-                $.ajax({
-                    url: "load.php",
-                    type: "POST",
-                    data: { subject_id: subject_id },
-                    cache: false,
-                    success: function (data) {
-                        $("#categoryid").html(data);
-                    }
-                });
-            });            
-        });
-    </script>
+
     <?php include 'js.php'; ?>
 </body>
 

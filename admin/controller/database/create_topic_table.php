@@ -19,8 +19,9 @@ $sql = "CREATE TABLE topics
     subject_id INT(2) NOT NULL,
     category_id INT(2) NOT NULL,
     topic VARCHAR(30) NOT NULL,
-    topic_detail VARCHAR(500) NOT NULL,
     topic_category VARCHAR(100) NOT NULL,
+    topic_detail VARCHAR(500) NOT NULL,  
+    topic_link VARCHAR(100) NOT NULL,  
     create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     update_at TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 )";
