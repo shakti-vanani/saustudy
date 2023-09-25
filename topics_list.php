@@ -2,7 +2,7 @@
 include 'admin/error.php';
 session_start();
 // Include database connection file
-include_once('admin/database/db.php');
+include_once('admin/controller/database/db.php');
 if (!isset($_SESSION['ID'])) {
     header("Location:index.php");
     exit();
