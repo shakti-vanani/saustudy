@@ -7,7 +7,7 @@
   }
   // Include database connectivity
     
-  include_once('admin/database/db.php');
+  include_once('admin/controller/database/db.php');
   
   if (isset($_POST['submit'])) {
       $errorMsg = "";
