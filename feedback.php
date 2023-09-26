@@ -39,7 +39,7 @@ if(2==$_SESSION['ROLE']){
                     <span class="input-group-text  viral-card-2 col-2">
                         <h5><i class="bi bi-journal"></i>message</h5>
                     </span>
-                    <textarea name="user_message" class="textarea_editor form-control border-radius-0"
+                    <textarea name="user_message" class="textarea_editor viral-card-1 form-control border-radius-0"
                         placeholder="Enter your message..."></textarea>
                     <input type="number" name="user_id" class="viral-card-1  p-2 col-10" value="1" hidden>
                     <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
