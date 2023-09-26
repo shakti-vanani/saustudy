@@ -1,5 +1,5 @@
 <?php 
-include 'admin/database/db.php'; 
+include 'admin/controller/database/db.php'; 
 include 'admin/error.php';
 if (isset($_POST['submit'])) {
     
