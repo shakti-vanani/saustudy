@@ -17,13 +17,9 @@ HTML, CSS,Javascript,Bootstrap,PHP,PHP OOP,MySQL(phpmyadmin)
 
 ## Tech Stack
 
-**language:** HTML, CSS,PHP
+**language:** HTML,CSS,PHP,Ajax,Jquery,Javascript,mySql
 
-**Freamework:** Bootstrap 5.3
-
-**Admin Theme:** AdminLTE v3.2.0
-
-**User Theme:** Glass morphism
+**Freamework:** Bootstrap 5.3 + Glass morphism
 
 **DATABASE:** phpmyadmin,mysql
 
