@@ -44,8 +44,8 @@ if (2 == $_SESSION['ROLE']) {
                             </h4>
 
                             <div class="embed-responsive ">
-                                <iframe class="embed-responsive-item" src="<?php echo $row['topic_link']; ?>"></iframe>
-                            </div>
+                            <iframe class="embed-responsive-item" width="400" height="315"  src="<?php echo $row['topic_link']; ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+                           </div>
                             <form action="topic_details.php" method="POST">
 
                                 <button class="btn viral-card-2 m-3" type="submit" name="topic_id"
