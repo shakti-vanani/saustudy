@@ -41,7 +41,10 @@ if(2==$_SESSION['ROLE']){
                     </span>
                     <textarea name="user_message" class="textarea_editor viral-card-1 form-control border-radius-0"
                         placeholder="Enter your message..."></textarea>
-                    <input type="number" name="user_id" class="viral-card-1  p-2 col-10" value="1" hidden>
+                        <?php
+                            $id=$_SESSION['ID'];
+                        ?>    
+                    <input type="number" name="user_id" class="viral-card-1  p-2 col-10" value="<?php echo $id; ?>" hidden>
                     <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                 </div>
             </form>
