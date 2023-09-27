@@ -12,6 +12,7 @@ if (0 == $_SESSION['ROLE']) {
     ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,35 +35,39 @@ if (0 == $_SESSION['ROLE']) {
             });
 
         });
-          // for select a subjects
-          $("#semesterid").on("change",function(){
-                var semid=$(this).val();
-                $.ajax({
-                    url :"get.php",
-                    type :"POST",
-                    data: {semid:semid},
-                    cache: false,
-                    success:function(data){
-                        $("#subjectid").html(data);
-                    }
-                });
-
+        // for select a subjects
+        $("#semesterid").on("change", function() {
+            var semid = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    semid: semid
+                },
+                cache: false,
+                success: function(data) {
+                    $("#subjectid").html(data);
+                }
             });
-             // for select a category
-          $("#subjectid").on("change",function(){
-                var subid=$(this).val();
-                $.ajax({
-                    url :"get.php",
-                    type :"POST",
-                    data: {subid:subid},
-                    cache: false,
-                    success:function(data){
-                        $("#categoryid").html(data);
-                    }
-                });
 
+        });
+        // for select a category
+        $("#subjectid").on("change", function() {
+            var subid = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    subid: subid
+                },
+                cache: false,
+                success: function(data) {
+                    $("#categoryid").html(data);
+                }
             });
-           
+
+        });
+
     });
     </script>
 </head>
@@ -114,28 +119,50 @@ if (0 == $_SESSION['ROLE']) {
                         </select>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2" id="subject">
-                            <h5><i class="bi bi-journal"></i>topics</h5>
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>topic category</h5>
                         </span>
-                        <input type="text" name="topic" class="viral-card-1  p-2 col-8" placeholder="Add New topic">
-
+                        <select class="viral-card-1 p-2 col-10 " name="topic_category" id="topiccategory">
+                            <option selected="">topic category</option>
+                            <option value="">pdf</option>
+                            <option value="">video</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2" id="subject">
+                            <h5><i class="bi bi-journal"></i>topic</h5>
+                        </span>
+                        <input type="text" name="topic" class="viral-card-1  p-2 col-10" placeholder="Add New topic">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>topic detail</h5>
+                        </span>
+                        <textarea name="topic_detail" class="textarea_editor viral-card-1 form-control border-radius-0"
+                            placeholder="Enter your message..."></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>topic link</h5>
+                            </span>
+                            <input type="link" name="topic_link" class="viral-card-1  p-2 col-8" placeholder="topic link">
                         <button type="submit" name="submit" class="btn viral-card-2 p-2 col-2">submit</button>
                     </div>
                 </form>
             </div>
 
         </div>
-        
-      
+
+
         <div class="row mt-1">
             <div class="row viral-card m-1">
-                    <div class="col">#</div>
-                    <div class="col">Courses</div>
-                    <div class="col">Semesters</div>
-                    <div class="col">Subject</div>
-                    <div class="col">Category</div>
-                    <div class="col">topic</div>
-                    <div class="col">Action</div>
+                <div class="col">#</div>
+                <div class="col">Courses</div>
+                <div class="col">Semesters</div>
+                <div class="col">Subject</div>
+                <div class="col">Category</div>
+                <div class="col">topic</div>
+                <div class="col">Action</div>
             </div>
             <?php
                 $data = $obj->view();
@@ -143,37 +170,37 @@ if (0 == $_SESSION['ROLE']) {
                     ?>
             <div class="row viral-card m-1">
                 <div class="col">
-                <?php echo $row["topic_id"]; ?>
+                    <?php echo $row["topic_id"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["course"]; ?>
+                    <?php echo $row["course"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["semester"]; ?>
+                    <?php echo $row["semester"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["subject_name"]; ?>
+                    <?php echo $row["subject_name"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["category"]; ?>
+                    <?php echo $row["category"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["topic"]; ?>
+                    <?php echo $row["topic"]; ?>
                 </div>
                 <div class="col">
-                <form action="" method="POST">
-                            <input type="number" value="<?php echo $row["topic_id"]; ?>" name="id" hidden>
-                            <button class="btn viral-card-edit" type="submit" name=""
-                                onclick="return confirm('are you sure to edit')"><i
-                                    class="bi bi-pencil-square"></i></button>
+                    <form action="" method="POST">
+                        <input type="number" value="<?php echo $row["topic_id"]; ?>" name="id" hidden>
+                        <button class="btn viral-card-edit" type="submit" name=""
+                            onclick="return confirm('are you sure to edit')"><i
+                                class="bi bi-pencil-square"></i></button>
 
-                            <button class="btn viral-card-delete" type="submit" name="delete"
-                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
-                        </form>
+                        <button class="btn viral-card-delete" type="submit" name="delete"
+                            onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                    </form>
                 </div>
             </div>
-           <?php } ?>
-        </div>  
+            <?php } ?>
+        </div>
     </div>
 
 
