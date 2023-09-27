@@ -29,9 +29,9 @@ if(2==$_SESSION['ROLE']){
         <div class="row mt-3">
 
 			<?php
-			 $id=$_POST['course_id'];
+			 $id=$_POST['subject_id'];
              // echo $id;
-               $sql="SELECT * FROM semesters WHERE course_id='$id'";      
+               $sql="SELECT * FROM category WHERE subject_id='$id'";      
                $res = mysqli_query($conn, $sql);
                
                while ($row = mysqli_fetch_assoc($res)) {
@@ -39,21 +39,21 @@ if(2==$_SESSION['ROLE']){
 				<div class="col-md-4 col-sm-12 ">
 					<div class="card viral-card m-1 text-center p-1">
 						<h4>
-                        <?php echo $row["semester"];
-                        $semester = $row["semester_id"];
+                        <?php echo $row["category"];
+                        $category = $row["category_id"];
                         
                         ?>
 						</h4>
-                        <form action="category.php" method="POST">
+                        <form action="topics_list.php" method="POST">
                                     <?php
-                                     $ssql = "SELECT * FROM subjects WHERE semester_id='$semester'";
-                                     $sres = mysqli_query($conn, $ssql);
+                                     $csql = "SELECT * FROM chapters WHERE category_id='$category'";
+                                     $cres = mysqli_query($conn, $csql);
                                     
-                                     while ($srow = mysqli_fetch_assoc($sres)) {
+                                     while ($crow = mysqli_fetch_assoc($cres)) {
                                             ?>
-                                        <button class="btn viral-card-2 m-3" type="submit" name="subject_id"
-                                            value="<?php echo $srow["subject_id"]; ?>">
-                                            <?php echo $srow["subject_name"]; ?>
+                                        <button class="btn viral-card-2 m-3" type="submit" name="chapter_id"
+                                            value="<?php echo $crow["chapter_id"]; ?>">
+                                            <?php echo $crow["chapter"]; ?>
                                         </button>
                                     <?php } ?>
                                 </form>

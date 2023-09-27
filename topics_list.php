@@ -23,15 +23,13 @@ if (2 == $_SESSION['ROLE']) {
         <?php include 'menu.php'; ?>
 
         <div class="container">
-            <div class="row mt-3">
-                <?php include 'slider.php'; ?>
-            </div>
+            
             <div class="row mt-3">
 
                 <?php
-                $id = $_POST['category_id'];
+                $id = $_POST['chapter_id'];
                 //echo $id;
-                $sql = "SELECT * FROM topics WHERE category_id='$id'";
+                $sql = "SELECT * FROM topics WHERE chapter_id='$id'";
                 $res = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($res)) {
