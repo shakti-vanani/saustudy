@@ -122,10 +122,10 @@ if (0 == $_SESSION['ROLE']) {
                         <span class="input-group-text  viral-card-2 col-2">
                             <h5><i class="bi bi-journal"></i>topic category</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="topic_category" id="topiccategory">
+                        <select class="viral-card-1 p-2 col-10 " name="topic_category" id="topiccategory"  required>
                             <option selected="">topic category</option>
-                            <option value="">pdf</option>
-                            <option value="">video</option>
+                            <option value="1">pdf</option>
+                            <option value="2">video</option>
                         </select>
                     </div>
                     <div class="input-group mb-3">
