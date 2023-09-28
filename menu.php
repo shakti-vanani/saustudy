@@ -1,7 +1,7 @@
-<nav class="navbar container top-0 start-50 translate-middle-x viral-card  m-2 navbar-expand-lg mt-3 ">
-	<div class="container-fluid ">
+<nav class="navbar   viral-card  m-2 navbar-expand-lg mt-3 p-2 ">
+	<div class="container-fluid text-center">
 	
-		<a class="navbar-brand  p-2" href="#"> Saustudy </a>
+		<a class="navbar-brand " href="#"> Saustudy </a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

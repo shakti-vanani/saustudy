@@ -25,7 +25,7 @@ if (2 == $_SESSION['ROLE']) {
         <div class="container">
             
             <div class="row mt-3">
-            <div class="card col-12 viral-card"><h3>PDF</h3></div>
+            <div class="card col-12 viral-card m-3 text-center p-1"><h3>PDF</h3></div>
                 <?php
                 $id = $_POST['chapter_id'];
                 $tid=1;
@@ -55,7 +55,7 @@ if (2 == $_SESSION['ROLE']) {
                 ?>
             </div>
             <div class="row mt-3">
-            <div class="card col-12 viral-card"><h3>Video</h3></div>
+            <div class="card col-12 viral-card m-3 text-center p-1"><h3>Video</h3></div>
                 <?php
                 $id = $_POST['chapter_id'];
                 $tid=2;
@@ -88,7 +88,7 @@ if (2 == $_SESSION['ROLE']) {
                 ?>
             </div>
             <div class="row mt-3">
-            <div class="card col-12 viral-card"><h3>Extra</h3></div>
+            <div class="card col-12 viral-card m-1 text-center p-1"><h3>Extra</h3></div>
                 <?php
                 $id = $_POST['chapter_id'];
                 $tid=3;
