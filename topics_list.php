@@ -35,16 +35,18 @@ if (2 == $_SESSION['ROLE']) {
                 while ($row = mysqli_fetch_assoc($res)) {
                     ?>
 
-                    <div class="col-md-4 col-sm-12 ">
+                    <div class="col-md-2 col-sm-12 mt-3">
                     
                         <div class="card viral-card m-1 text-center p-1">
                            
                             <h4>
                                 <?php echo $row["topic"];
-
                                 $subject = $row["topic_id"];
                                 ?>
                             </h4>
+                           <a href="">
+                            <img src="asset/images/pdf.png" alt="" height="100px" width="100px" srcset="">
+                           </a>
                         </div>
 
                     </div>
@@ -63,7 +65,7 @@ if (2 == $_SESSION['ROLE']) {
                 while ($row = mysqli_fetch_assoc($res)) {
                     ?>
 
-                    <div class="col-md-4 col-sm-12 ">
+                    <div class="col-md-4 col-sm-12 mt-3">
                     
                         <div class="card viral-card m-1 text-center p-1">
                            
