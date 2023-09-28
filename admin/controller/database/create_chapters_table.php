@@ -10,25 +10,19 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
-//sql to topics table
-$sql = "CREATE TABLE topics
+//sql to chapter table
+$sql = "CREATE TABLE chapters
 (
-    topic_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    chapter_id INT(2) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     course_id  INT(2) NOT NULL,
     semester_id INT(2) NOT NULL,
     subject_id INT(2) NOT NULL,
     category_id INT(2) NOT NULL,
-    chapter_id INT(2) NOT NULL,
-    topic_category VARCHAR(100) NOT NULL,
-    topic VARCHAR(30) NOT NULL,    
-    topic_detail VARCHAR(500) NOT NULL,  
-    topic_link VARCHAR(100) NOT NULL,  
-    create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    update_at TIMESTAMP NOT NULL DEFAULT  CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+    chapter VARCHAR(30) NOT NULL
 )";
 
 if (mysqli_query($conn, $sql)) {
-  echo "Table topics created successfully";
+  echo "Table chapter created successfully";
 } else {
   echo "Error creating table: " . mysqli_error($conn);
 }

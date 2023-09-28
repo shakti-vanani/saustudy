@@ -28,6 +28,9 @@
 					<a class="nav-link " href="category.php">category</a>
 				</li>
 				<li class="nav-item ">
+					<a class="nav-link " href="chapters.php">chapters</a>
+				</li>
+				<li class="nav-item ">
 					<a class="nav-link " href="topics.php">topics</a>
 				</li>
 				<li class="nav-item dark  ">

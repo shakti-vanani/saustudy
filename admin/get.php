@@ -30,17 +30,17 @@ while($row=mysqli_fetch_assoc($res))
 echo'<option value="'.$row['category_id'].'">'.$row['category'].'</option>';
 }
 }
-elseif(isset($_POST['category_id']))
+elseif(isset($_POST['cate_id']))
 {
-//$category_id=$_POST['category_id'];
-$res=mysqli_query($conn,"SELECT * FROM material WHERE `category_id`=".$_POST['category_id']."");
+//$category_id=$_POST['cate_id'];
+$res=mysqli_query($conn,"SELECT * FROM chapters WHERE `category_id`=".$_POST['cate_id']."");
 
-echo'<option value="">select matirial</option>';
+echo'<option value="">select chapter</option>';
 
 while($row=mysqli_fetch_assoc($res))
 {
 
-echo'<option value="'.$row['material_id'].'">'.$row['material'].'</option>';
+echo'<option value="'.$row['chapter_id'].'">'.$row['chapter'].'</option>';
 } 
 }
 ?>

@@ -67,6 +67,21 @@ if (0 == $_SESSION['ROLE']) {
             });
 
         });
+        $("#categoryid").on("change", function() {
+            var cate_id = $(this).val();
+            $.ajax({
+                url: "get.php",
+                type: "POST",
+                data: {
+                    cate_id: cate_id
+                },
+                cache: false,
+                success: function(data) {
+                    $("#chapterid").html(data);
+                }
+            });
+
+        });
 
     });
     </script>
@@ -120,6 +135,13 @@ if (0 == $_SESSION['ROLE']) {
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text  viral-card-2 col-2">
+                            <h5><i class="bi bi-journal"></i>chapter</h5>
+                        </span>
+                        <select class="viral-card-1 p-2 col-10 " name="chapter_id" id="chapterid">
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text  viral-card-2 col-2">
                             <h5><i class="bi bi-journal"></i>topic category</h5>
                         </span>
                         <select class="viral-card-1 p-2 col-10 " name="topic_category" id="topiccategory"  required>
@@ -161,6 +183,8 @@ if (0 == $_SESSION['ROLE']) {
                 <div class="col">Semesters</div>
                 <div class="col">Subject</div>
                 <div class="col">Category</div>
+                <div class="col">Chapter</div>
+                <div class="col">topic_category</div>               
                 <div class="col">topic</div>
                 <div class="col">Action</div>
             </div>
@@ -183,6 +207,12 @@ if (0 == $_SESSION['ROLE']) {
                 </div>
                 <div class="col">
                     <?php echo $row["category"]; ?>
+                </div>
+                <div class="col">
+                    <?php echo $row["chapter"]; ?>
+                </div>
+                <div class="col">
+                    <?php echo $row["topic_category"]; ?>
                 </div>
                 <div class="col">
                     <?php echo $row["topic"]; ?>
