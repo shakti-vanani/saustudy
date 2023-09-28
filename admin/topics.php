@@ -137,7 +137,7 @@ if (0 == $_SESSION['ROLE']) {
                         <span class="input-group-text  viral-card-2 col-2">
                             <h5><i class="bi bi-journal"></i>chapter</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="chapter_id" id="chapterid">
+                        <select class="viral-card-1 p-2 col-10 " name="chapters_id" id="chapterid">
                         </select>
                     </div>
                     <div class="input-group mb-3">
@@ -220,7 +220,7 @@ if (0 == $_SESSION['ROLE']) {
                 <div class="col">
                     <form action="" method="POST">
                         <input type="number" value="<?php echo $row["topic_id"]; ?>" name="id" hidden>
-                        <button class="btn viral-card-edit" type="submit" name=""
+                        <button class="btn viral-card-edit" type="submit" name="update"
                             onclick="return confirm('are you sure to edit')"><i
                                 class="bi bi-pencil-square"></i></button>
 
