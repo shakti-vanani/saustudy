@@ -97,13 +97,13 @@ if (0 == $_SESSION['ROLE']) {
             <div class=" viral-card text-center">
                 <form class="mt-3" action="" method="POST">
                     <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                        <span class="input-group-text  viral-card-2  p-1">
                             <h5><i class="bi bi-journal"></i>course select</h5>
                         </span>
                         <?php
                         $data = $obj->courseview();
                         ?>
-                        <select class="viral-card-1 p-2 col-10" name="course_id" id="courseid">
+                        <select class="viral-card-1 p-1 " name="course_id" id="courseid">
                             <option selected="">Choose course...</option>
                             <?php 
                             while($row=mysqli_fetch_assoc($data))
@@ -111,50 +111,46 @@ if (0 == $_SESSION['ROLE']) {
                             <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
                             <?php } ?>
                         </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                   
+                        <span class="input-group-text  viral-card-2 p-1">
                             <h5><i class="bi bi-journal"></i>semester</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="semester_id" id="semesterid">
+                        <select class="viral-card-1 p-1  " name="semester_id" id="semesterid">
                         </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                  
+                    
+                        <span class="input-group-text  viral-card-2 p-1">
                             <h5><i class="bi bi-journal"></i>subject</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="subject_id" id="subjectid">
+                        <select class="viral-card-1 p-1" name="subject_id" id="subjectid">
                         </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                    
+                        <span class="input-group-text  viral-card-2 p-1">
                             <h5><i class="bi bi-journal"></i>category</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="category_id" id="categoryid">
+                        <select class="viral-card-1 p-1 " name="category_id" id="categoryid">
                         </select>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                        <span class="input-group-text  viral-card-2 p-1">
                             <h5><i class="bi bi-journal"></i>chapter</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="chapters_id" id="chapterid">
+                        <select class="viral-card-1 p-1 " name="chapters_id" id="chapterid">
                         </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2">
+                    
+                        <span class="input-group-text  viral-card-2 p-1">
                             <h5><i class="bi bi-journal"></i>topic category</h5>
                         </span>
-                        <select class="viral-card-1 p-2 col-10 " name="topic_category" id="topiccategory"  required>
+                        <select class="viral-card-1 p-1 " name="topic_category" id="topiccategory"  required>
                             <option selected="">topic category</option>
                             <option value="1">pdf</option>
                             <option value="2">video</option>
                         </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text  viral-card-2 col-2" id="subject">
+                    
+                        <span class="input-group-text  viral-card-2 p-1" id="subject">
                             <h5><i class="bi bi-journal"></i>topic</h5>
                         </span>
-                        <input type="text" name="topic" class="viral-card-1  p-2 col-10" placeholder="Add New topic">
+                        <input type="text" name="topic" class="viral-card-1  p-1" placeholder="Add New topic">
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text  viral-card-2 col-2">
