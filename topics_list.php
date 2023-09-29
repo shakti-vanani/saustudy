@@ -121,7 +121,6 @@ if (2 == $_SESSION['ROLE']) {
                 ?>
             </div>
         </div>
-
         <?php include 'footer.php'; ?>
 
         <?php include 'js.php'; ?>
