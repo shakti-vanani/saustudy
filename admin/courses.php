@@ -79,7 +79,7 @@ if (0 == $_SESSION['ROLE']) {
                         <p>
                             <?php echo $row["course"]; ?>
                         </p>
-                        <form action="" method="POST">
+                        <form action="#" method="POST">
 
                             <input type="number" value="<?php echo $row['course_id']; ?>" name="id" hidden>
                             <button type="button" class="btn viral-card-edit" data-bs-toggle="modal"
@@ -90,44 +90,47 @@ if (0 == $_SESSION['ROLE']) {
                         </form>
                     </div>
                 </div>
-            </div>
-            <?php }
-                ?>
-            <!-- Modal -->
-            <div class="modal fade" id="updatedata" tabindex="-1" aria-labelledby="forupdatemodal" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="forupdatemodal">update courses</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row p-2 mt-1">
+                <!-- Modal -->
+                <div class="modal fade" id="updatedata" tabindex="-1" aria-labelledby="forupdatemodal"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="forupdatemodal">update courses</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row p-2 mt-1">
 
-                                <div class=" viral-card text-center">
+                                    <div class=" viral-card text-center">
 
-                                    <form class="mt-3" action="#" method="POST">
-
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text  viral-card-2 col-3" id="course">
-                                                <h5><i class="bi bi-journal"></i> Course</h5>
-                                            </span>
-                                            <input type="text" name="course" class="viral-card-1  p-2 col-8"
-                                                value="<?php echo $row['course']; ?>">
-                                        </div>
-                                    </form>
+                                        <form class="mt-3" action="#" method="POST">
+                                            <input type="number" value="<?php echo $row['course_id']; ?>" name="id">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text  viral-card-2 col-3" id="course">
+                                                    <h5><i class="bi bi-journal"></i> Course</h5>
+                                                </span>
+                                                <input type="text" name="course" class="viral-card-1  p-2 col-8" value="<?php echo $row['course'];?>">
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <form action="" method="POST">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="update" class="btn btn-primary">update</button>
-                            </form>
+                            <div class="modal-footer">
+                                <form action="#" method="POST">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" name="update" class="btn btn-primary">update</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php }
+                ?>
+
         </div>
     </div>
     <?php include 'footer.php'; ?>
