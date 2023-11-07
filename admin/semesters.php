@@ -45,7 +45,7 @@ if (0 == $_SESSION['ROLE']) {
                             <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
                             <?php } ?>
                         </select>
-                        
+
                     </div>
                     <div class="input-group mb-3">
 
@@ -61,13 +61,13 @@ if (0 == $_SESSION['ROLE']) {
             </div>
 
         </div>
-       
+
         <div class="row mt-1">
             <div class="row viral-card m-1">
-                    <div class="col">#</div>
-                    <div class="col">Courses</div>
-                    <div class="col">Semesters</div>
-                    <div class="col">Action</div>
+                <div class="col">#</div>
+                <div class="col">Courses</div>
+                <div class="col">Semesters</div>
+                <div class="col">Action</div>
             </div>
             <?php
                 $data = $obj->view();
@@ -75,27 +75,80 @@ if (0 == $_SESSION['ROLE']) {
                     ?>
             <div class="row viral-card m-1">
                 <div class="col">
-                <?php echo $row["semester_id"]; ?>
+                    <?php echo $row["semester_id"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["course"]; ?>
+                    <?php echo $row["course"]; ?>
                 </div>
                 <div class="col">
-                <?php echo $row["semester"]; ?>
+                    <?php echo $row["semester"]; ?>
                 </div>
                 <div class="col">
-                <form action="" method="POST">
-                            <input type="number" value="<?php echo $row["semester_id"]; ?>" name="id" hidden>
-                            <button class="btn viral-card-edit" type="submit" name="update"
-                                onclick="return confirm('are you sure to edit')"><i
-                                    class="bi bi-pencil-square"></i></button>
+                    <form action="" method="POST">
+                        <input type="number" value="<?php echo $row["semester_id"]; ?>" name="id" hidden>
+                        <button class="btn viral-card-edit" type="button" data-bs-toggle="modal"
+                            data-bs-target="#updatedata"><i class="bi bi-pencil-square"></i></button>
 
-                            <button class="btn viral-card-delete" type="submit" name="delete"
-                                onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
-                        </form>
+                        <button class="btn viral-card-delete" type="submit" name="delete"
+                            onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
+                    </form>
                 </div>
             </div>
-           <?php } ?>
+            <!-- Modal -->
+            <div class="modal fade" id="updatedata" tabindex="-1" aria-labelledby="forupdatemodal" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="forupdatemodal">update semester</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <div class="row p-2 mt-1">
+
+<div class=" viral-card text-center">
+    <form class="mt-3" action="" method="POST">
+        <div class="input-group mb-3">
+            <span class="input-group-text  viral-card-2 col-3" id="course">
+                <h5><i class="bi bi-journal"></i>course</h5>
+            </span>
+            <?php
+            $data = $obj->courseview();
+            ?>
+            <select class="viral-card-1 p-2 col-9" name="course_id">
+                <option selected="">select course</option>
+                <?php 
+                while($row=mysqli_fetch_assoc($data))
+                { ?>
+                <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
+                <?php } ?>
+            </select>
+
+        </div>
+        <div class="input-group mb-3">
+
+            <span class="input-group-text  viral-card-2 col-3" id="semetser">
+                <h5><i class="bi bi-journal"></i>semester</h5>
+            </span>
+            <input type="text" name="semester" class="viral-card-1  p-2 col-7"
+                placeholder="Update semester">
+
+            <button type="submit" name="update" class="btn viral-card-2 p-2 col-2">update</button>
+        </div>
+    </form>
+</div>
+
+</div>
+                        </div>
+                        <div class="modal-footer">
+                            <form action="#" method="POST">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="update" class="btn btn-primary">update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
 
 
