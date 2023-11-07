@@ -103,41 +103,43 @@ if (0 == $_SESSION['ROLE']) {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <div class="row p-2 mt-1">
+                            <div class="row p-2 mt-1">
 
-<div class=" viral-card text-center">
-    <form class="mt-3" action="" method="POST">
-        <div class="input-group mb-3">
-            <span class="input-group-text  viral-card-2 col-3" id="course">
-                <h5><i class="bi bi-journal"></i>course</h5>
-            </span>
-            <?php
+                                <div class=" viral-card text-center">
+                                    <form class="mt-3" action="" method="POST">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text  viral-card-2 col-3" id="course">
+                                                <h5><i class="bi bi-journal"></i>course</h5>
+                                            </span>
+                                            <?php
             $data = $obj->courseview();
             ?>
-            <select class="viral-card-1 p-2 col-9" name="course_id">
-                <option selected="">select course</option>
-                <?php 
+                                            <select class="viral-card-1 p-2 col-9" name="course_id">
+                                                <option selected="">select course</option>
+                                                <?php 
                 while($row=mysqli_fetch_assoc($data))
                 { ?>
-                <option value=<?php echo $row['course_id']; ?>><?php echo $row['course']; ?></option>
-                <?php } ?>
-            </select>
+                                                <option value=<?php echo $row['course_id']; ?>>
+                                                    <?php echo $row['course']; ?></option>
+                                                <?php } ?>
+                                            </select>
 
-        </div>
-        <div class="input-group mb-3">
+                                        </div>
+                                        <div class="input-group mb-3">
 
-            <span class="input-group-text  viral-card-2 col-3" id="semetser">
-                <h5><i class="bi bi-journal"></i>semester</h5>
-            </span>
-            <input type="text" name="semester" class="viral-card-1  p-2 col-7"
-                placeholder="Update semester">
+                                            <span class="input-group-text  viral-card-2 col-3" id="semetser">
+                                                <h5><i class="bi bi-journal"></i>semester</h5>
+                                            </span>
+                                            <input type="text" name="semester" class="viral-card-1  p-2 col-7"
+                                                placeholder="Update semester">
 
-            <button type="submit" name="update" class="btn viral-card-2 p-2 col-2">update</button>
-        </div>
-    </form>
-</div>
+                                            <button type="submit" name="update"
+                                                class="btn viral-card-2 p-2 col-2">update</button>
+                                        </div>
+                                    </form>
+                                </div>
 
-</div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <form action="#" method="POST">
