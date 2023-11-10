@@ -112,6 +112,9 @@ if (0 == $_SESSION['ROLE']) {
                                                     <h5><i class="bi bi-journal"></i> Course</h5>
                                                 </span>
                                                 <input type="text" name="course" class="viral-card-1  p-2 col-8" value="<?php echo $row['course'];?>">
+                                                <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" name="update" class="btn btn-primary">update</button>
                                             </div>
                                         </form>
                                     </div>
