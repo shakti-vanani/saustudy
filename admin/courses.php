@@ -80,8 +80,8 @@ if (0 == $_SESSION['ROLE']) {
                             <?php echo $row["course"]; ?>
                         </p>
                         <form action="#" method="POST">
-
                             <input type="number" value="<?php echo $row['course_id']; ?>" name="id" hidden>
+
                             <button type="button" class="btn viral-card-edit" data-bs-toggle="modal"
                                 data-bs-target="#updatedata"><i class="bi bi-pencil-square"></i>
                             </button>
@@ -106,27 +106,26 @@ if (0 == $_SESSION['ROLE']) {
                                     <div class=" viral-card text-center">
 
                                         <form class="mt-3" action="#" method="POST">
-                                            <input type="number" value="<?php echo $row['course_id']; ?>" name="id">
                                             <div class="input-group mb-3">
                                                 <span class="input-group-text  viral-card-2 col-3" id="course">
                                                     <h5><i class="bi bi-journal"></i> Course</h5>
                                                 </span>
-                                                <input type="text" name="course" class="viral-card-1  p-2 col-8" value="<?php echo $row['course'];?>">
+                                                <input type="number" value="<?php echo $row['course_id']; ?>" name="id"  hidden>
+                                                <input type="text" name="course" class="viral-card-1  p-2 col-8"
+                                                    value="<?php echo $row['course'];?>">
+                                            </div>
+                                            <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" name="update" class="btn btn-primary">update</button>
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" name="update"
+                                                    class="btn btn-primary">update</button>
+
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal-footer">
-                                <form action="#" method="POST">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" name="update" class="btn btn-primary">update</button>
-                                </form>
-                            </div>
+
                         </div>
                     </div>
                 </div>

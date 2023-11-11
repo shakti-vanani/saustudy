@@ -94,12 +94,13 @@ if (0 == $_SESSION['ROLE']) {
                     </form>
                 </div>
             </div>
-            <!-- Modal -->
+
+            <?php } ?>
             <div class="modal fade" id="updatedata" tabindex="-1" aria-labelledby="forupdatemodal" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="forupdatemodal">update semester</h1>
+                            <h1 class="modal-title fs-5" id="forupdatemodal">update courses</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -109,7 +110,7 @@ if (0 == $_SESSION['ROLE']) {
                                     <form class="mt-3" action="" method="POST">
                                         <div class="input-group mb-3">
                                             <span class="input-group-text  viral-card-2 col-3" id="course">
-                                                <h5><i class="bi bi-journal"></i>course</h5>
+                                                <h5><i class="bi bi-journal"></i>Course</h5>
                                             </span>
                                             <?php
             $data = $obj->courseview();
@@ -130,28 +131,27 @@ if (0 == $_SESSION['ROLE']) {
                                             <span class="input-group-text  viral-card-2 col-3" id="semetser">
                                                 <h5><i class="bi bi-journal"></i>semester</h5>
                                             </span>
-                                            <input type="text" name="semester" class="viral-card-1  p-2 col-7"
-                                                placeholder="Update semester">
+                                            <input type="number" value="<?php echo $row['semester_id']; ?>" name="id" hidden>
+                                            <input type="text" name="semester" class="viral-card-1  p-2 col-9"
+                                                placeholder="update semester">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" name="update" class="btn btn-primary">update</button>
 
-                                            <button type="submit" name="update"
-                                                class="btn viral-card-2 p-2 col-2">update</button>
                                         </div>
                                     </form>
                                 </div>
 
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <form action="#" method="POST">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="update" class="btn btn-primary">update</button>
-                            </form>
-                        </div>
+
                     </div>
                 </div>
             </div>
-            <?php } ?>
         </div>
+    </div>
 
 
     </div>
