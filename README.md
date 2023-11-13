@@ -15,7 +15,7 @@ This Project Are College Education..
 HTML, CSS,Javascript,Bootstrap,PHP,PHP OOP,MySQL(phpmyadmin)
 
 
-## Tech Stack
+## Tech Stack  
 
 **language:** HTML,CSS,PHP,Ajax,Jquery,Javascript,mySql
 
