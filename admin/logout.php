@@ -5,6 +5,6 @@
 	//session_unset($_SESSION['USERNAME']);
 	//session_unset($_SESSION['ROLE']);
 	//session_unset($_SESSION['ID']);
-	header("Location:/computer_vedas/saustudy/index.php");
+	header("Location:/project/saustudy/index.php");
 	die();
 ?>

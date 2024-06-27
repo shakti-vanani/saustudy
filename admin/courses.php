@@ -63,11 +63,12 @@ if (0 == $_SESSION['ROLE']) {
         <?php  } */
             ?>
         <div class="row mt-1">
-            <?php
+        <?php
                 $data = $obj->view();
                 while ($row = mysqli_fetch_assoc($data)) {
                     ?>
             <div class="col-lg-4 col-md-4 col-sm-12 ">
+          
                 <div class="card viral-card m-1 text-center p-1">
                     <h4>
                         <?php echo $row["username"]; ?>
@@ -79,6 +80,7 @@ if (0 == $_SESSION['ROLE']) {
                         <p>
                             <?php echo $row["course"]; ?>
                         </p>
+           
                         <form action="#" method="POST">
                             <input type="number" value="<?php echo $row['course_id']; ?>" name="id" hidden>
 
@@ -89,7 +91,9 @@ if (0 == $_SESSION['ROLE']) {
                                 onclick="return confirm('are you sure to delete')"><i class="bi bi-trash3"></i></button>
                         </form>
                     </div>
+                  
                 </div>
+              
                 <!-- Modal -->
                 <div class="modal fade" id="updatedata" tabindex="-1" aria-labelledby="forupdatemodal"
                     aria-hidden="true">

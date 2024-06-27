@@ -14,5 +14,5 @@ if (!isset($_SESSION['ID'])) {
     }
 } else {
    
-   header("Location:/computer_vedas/saustudy/index.php");
+   header("Location:/project/saustudy/index.php");
 }
